@@ -1,3 +1,0 @@
-{cobble,cobble,cobble}
-{cobble,torch,cobble}
-{cobble,tree,cobble}
