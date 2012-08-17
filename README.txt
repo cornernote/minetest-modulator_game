@@ -3,6 +3,7 @@ MINETEST SKYBLOCK GAME
 ----------------------------------
 
 Copyright (C) 2012 cornernote, Brett O'Donnell <cornernote@gmail.com>
+All mods are licensed and copyrighted as per their readme, or WTFPL
 
 Zip Download: https://github.com/cornernote/minetest-skyblock_game/zipball/master
 Source Code: https://github.com/cornernote/minetest-skyblock_game
