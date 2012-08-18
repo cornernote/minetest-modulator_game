@@ -45,6 +45,7 @@ local function lol_m(node) -- ololo
 end
 
 -- Nodes
+--[[
 minetest.register_node(":default:dirt", {
 	tiles = {"default_dirt.png"},
 	inventory_image = minetest.inventorycube("default_dirt.png"),
@@ -53,6 +54,7 @@ minetest.register_node(":default:dirt", {
     extra_drop = 'craft "mushrooms:spores" 1',
     extra_drop_rarity = SPORE_DIG_RARITY,
 })
+]]--
 
 for _, color in ipairs(MUSHROOMS) do
     mname = "mushroom_" .. color

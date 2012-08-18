@@ -38,7 +38,6 @@ https://github.com/cornernote/minetest-skyblock
 INSTALL INSTRUCTIONS
 ----------------------------------
 
-Option 2: as a game mode
 copy skyblock_game to /minetest/games/skyblock_game
 
 
