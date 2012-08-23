@@ -109,13 +109,6 @@ function stairsplus.register_stair(subname, recipeitem, groups, images, descript
 	})
 	
 	minetest.register_craft({
-		output = 'stairsplus:stair_' .. subname .. '_inverted' .. ' 1',
-		recipe = {
-			{'stairs:stair_' .. subname},
-		},
-	})
-	
-	minetest.register_craft({
 		output = 'stairsplus:stair_' .. subname .. ' 1',
 		recipe = {
 			{'stairsplus:stair_' .. subname .. '_inverted'},

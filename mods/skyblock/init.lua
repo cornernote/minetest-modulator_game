@@ -1,32 +1,28 @@
 --[[
 
-SkyBlock
-by cornernote <cornernote@gmail.com>
+SkyBlock for MineTest
+
+Copyright (c) 2012 cornernote, Brett O'Donnell <cornernote@gmail.com>
+Source Code: https://github.com/cornernote/minetest-skyblock
+License: GPLv3
+
+MAIN LOADER
 
 ]]--
 
 -- expose functions to other modules
 skyblock = {}
 
--- How far apart to set players start positions
-skyblock.START_GAP = 64
+-- load config and functions
+dofile(minetest.get_modpath("skyblock").."/config.lua")
+dofile(minetest.get_modpath("skyblock").."/api.lua")
 
--- How many players will be in 1 row
--- skyblock.WORLD_WIDTH * skyblock.WORLD_WIDTH = total players
-skyblock.WORLD_WIDTH = 5
+-- register entities
+dofile(minetest.get_modpath("skyblock").."/register_alias.lua")
+dofile(minetest.get_modpath("skyblock").."/register_node.lua")
+dofile(minetest.get_modpath("skyblock").."/register_craft.lua")
+dofile(minetest.get_modpath("skyblock").."/register_abm.lua")
+dofile(minetest.get_modpath("skyblock").."/register_misc.lua")
 
--- How far down (in nodes) before a player dies and is respawned
-skyblock.WORLD_BOTTOM = -32
-
--- load other files
-dofile(minetest.get_modpath("skyblock").."/functions.lua")
-dofile(minetest.get_modpath("skyblock").."/register.lua")
-
--- give initial stuff
-minetest.register_on_newplayer(function(player)
-	player:get_inventory():add_item('main', 'default:dirt 10')
-	player:get_inventory():add_item('main', 'default:tree')
-	player:get_inventory():add_item('main', 'default:sapling')
-	player:get_inventory():add_item('main', 'default:water_source 2')
-	player:get_inventory():add_item('main', 'bucket:bucket_lava')
-end)
+-- log that we started
+minetest.log("action", "[MOD]"..minetest.get_current_modname().." -- loaded from "..minetest.get_modpath(minetest.get_current_modname()))

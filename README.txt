@@ -1,12 +1,13 @@
 ----------------------------------
-MINETEST SKYBLOCK GAME
+SEABLOCK FOR MINETEST
 ----------------------------------
 
-Copyright (C) 2012 cornernote, Brett O'Donnell <cornernote@gmail.com>
-All mods are licensed and copyrighted as per their readme, or WTFPL
 
-Zip Download: https://github.com/cornernote/minetest-skyblock_game/zipball/master
-Source Code: https://github.com/cornernote/minetest-skyblock_game
+Copyright (c) 2012 cornernote, Brett O'Donnell <cornernote@gmail.com>
+
+Source Code: https://github.com/cornernote/minetest-seablock_game
+License: GPLv3
+
 
 
 ----------------------------------
@@ -14,101 +15,22 @@ DESCRIPTION
 ----------------------------------
 
 
-Your mission is to build a world starting from just 1 block.
+Build a world starting from a small island in the sea.
 
-When you join there will be one indestructable block for you to build on.  
+This game has many mods installed for a fun and interesting gaming experience.
 
-The rest of the world is entirely void. 
+To view the items and craft recipies, please visit the SeaBlock Game Wiki:
+http://cornernote.net/minetest/seablock/wiki
 
-Here is a video by SlamacowCreations made in MineCraft that helps explain the concept:
-http://www.youtube.com/watch?v=fsk7uZI4_NI
-
-
--- So, this is just minetest and other peoples mods? --
-
-Well, yes and no. This release is intended to be a COMPLETE skyblock game aimed mostly 
-at minetest players who would rather play the game than find a set of mods that all 
-work well.
-
-If you are looking for the MINIMAL skyblock game, please check here:
-https://github.com/cornernote/minetest-skyblock
 
 
 ----------------------------------
 INSTALL INSTRUCTIONS
 ----------------------------------
 
-copy skyblock_game to /minetest/games/skyblock_game
 
-
-
-----------------------------------
-PLAYING INSTRUCTIONS
-----------------------------------
-
-You will be given the following items: dirt 10, tree, sapling, lava_source, bucket_water.  
-
-
--- Death Hurts --
-
-If you fall below skyblock.WORLD_BOTTOM you will lose all your items and die.
-
-
--- Tree --
-
-Noticed that sapling in your inventory?  Throw it on the ground and it will grow into
-a tree.  Perhaps even an apple tree!
-
-
--- Stone Generator --
-
-While you wait for your tree to grow, you should probably create a stone generator.  
-This is done by placing lava and water next to each other with air between.
-
-
--- Crafting --
-
-You may notice you cannot chop down trees or dig the stone with your bare hands.  
-
-Put the tree in your craft grid and you will receive 4 wood.
-Put one of the wood back into the craft grid and you will receive 4 sticks.
-
-WW-  W=wood   <-- Wooden Axe
-WS-  S=stick
--S-  - empty
-
-WWW  W=wood   <-- Wooden Pickaxe
--S-  S=stick
--S-  - empty
-
-
--- What's Next --
-
-The rest is up to you.
-
-
-
-----------------------------------
-SINGLEPLAYER MAP
-----------------------------------
-
-I have included 2 worldedit schems that will allow you to load the L-shaped map that
-you may be familiar with.
-
-schems/skyblock.we      <-- just the dirt
-schems/skyblock_plus.we <-- dirt, chest and tree
-
-Copy the *.we files into: /minetest/worlds/[yourworld]/schems
-Then issue the following chat commands:
-//pos1
-//load skyblock_plus
-
-You should now have an L-shaped island in the middle of your void.
-
-If you still have a spawnblock that you cannot remove, issue the chat command:
-//p set
-Then punch the block twice, then issue the chat command: 
-//set air
+1) rename cornernote-minetest-seablock_game-* to seablock_game
+2) move seablock_game into /minetest/games/
 
 
 
@@ -164,6 +86,6 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 Credits
 ----------------------------------
 
-Thank you to the minetest community who has shared their code 
-and knowledge with me.
+Thank you to the minetest community who has shared their code and knowledge with me.
 
+** COMING SOON - list of mods and authors **

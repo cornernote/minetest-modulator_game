@@ -14,7 +14,7 @@ minetest.register_node(":default:torch", {
 		{name="default_torch_on_ceiling_animated.png", animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=3.0}},
 		{name="default_torch_animated.png", animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=3.0}}
 
-		},
+	},
 	inventory_image = "default_torch_on_floor.png",
 	wield_image = "default_torch_on_floor.png",
 	paramtype = "light",
@@ -31,3 +31,6 @@ minetest.register_node(":default:torch", {
 	groups = {choppy=2,dig_immediate=3,flammable=1},
 	sounds = default.node_sound_defaults(),
 })
+
+
+minetest.log("action", "[MOD]"..minetest.get_current_modname().." -- loaded from "..minetest.get_modpath(minetest.get_current_modname()))

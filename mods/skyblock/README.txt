@@ -1,10 +1,12 @@
 ----------------------------------
-MINETEST SKYBLOCK
+SKYBLOCK FOR MINETEST
 ----------------------------------
 
-Copyright (C) 2012 cornernote, Brett O'Donnell <cornernote@gmail.com>
+
+Copyright (c) 2012 cornernote, Brett O'Donnell <cornernote@gmail.com>
 
 Source Code: https://github.com/cornernote/minetest-skyblock
+License: GPLv3
 
 
 
@@ -13,14 +15,7 @@ DESCRIPTION
 ----------------------------------
 
 
-* WARNING * - this mod will disable all map generation!
-
-
-Your mission is to build a world starting from just 1 block.
-
-When you join there will be one indestructable block for you to build on.  
-
-The rest of the world is entirely void. 
+Build a world starting from a small island in the sky.
 
 Here is a video by SlamacowCreations made in MineCraft that helps explain the concept:
 http://www.youtube.com/watch?v=fsk7uZI4_NI
@@ -35,11 +30,15 @@ complete games, and that other developers may do the same.
 
 -- What else will this change in my game? --
 
-Some thigs have to be different in the minetest default mod because mapgen is disabled:
-- falling below skyblock.WORLD_BOTTOM results in death and loss of items
-- lava and water collide to make stone
+* WARNING * - this mod will disable all map generation in any world the mod is active!
+
+Because of this, some things have to be different:
+- death results in restarting at a new position (you lose)
+- falling below skyblock.WORLD_BOTTOM results in death
+- flowing lava and water collide to make stone
 - dig stone to randomly drop some items
-- prevent chopping down treeswith bare hands
+- crafts to allow access to all items
+- prevent chopping down trees with bare hands
 - abm and function to grow trees so the shape is different
 - abm to turn dirt to dirt_with_grass and back
 
@@ -49,12 +48,37 @@ Some thigs have to be different in the minetest default mod because mapgen is di
 INSTALL INSTRUCTIONS
 ----------------------------------
 
-Option 1: as a mod
-copy skyblock to /minetest/mods/minetest/
 
-Option 2: as a game mode
+1) rename cornernote-minetest-skyblock-* to skyblock
+
+2.a) as a mod
+move skyblock into /minetest/mods/minetest/
+OR
+2.b) as a game mode
 copy /minetest/games/minetest_game to /minetest/games/skyblock_game
-copy skyblock to /minetest/games/skyblock_game/mods/
+move skyblock into /minetest/games/skyblock_game/mods/
+
+
+
+----------------------------------
+BUILD CHALLENGES
+----------------------------------
+
+Your mission is to build the following:
+
+1) stone generator
+2) tree farm
+3) a house
+4) infinite water source
+5) external house decoration
+6) water feature
+7) internal house decoration
+8) small lake
+9) underground room in your house
+10) something not provided by default (you have to install a mod)
+
+BONUS) post a screenshot to the link below (feel free to post your progress screenshots too!)
+http://minetest.net/forum/viewtopic.php?id=2799
 
 
 
@@ -62,24 +86,10 @@ copy skyblock to /minetest/games/skyblock_game/mods/
 PLAYING INSTRUCTIONS
 ----------------------------------
 
-You will be given the following items: dirt 10, tree, sapling, lava_source, bucket_water.  
-
 
 -- Death Hurts --
 
-If you fall below skyblock.WORLD_BOTTOM you will lose all your items and die.
-
-
--- Tree --
-
-Noticed that sapling in your inventory?  Throw it on the ground and it will grow into
-a tree.  Perhaps even an apple tree!
-
-
--- Stone Generator --
-
-While you wait for your tree to grow, you should probably create a stone generator.  
-This is done by placing lava and water next to each other with air between.
+If you fall below skyblock.WORLD_BOTTOM you will have to restart at a new spawn point.
 
 
 -- Crafting --
@@ -89,13 +99,52 @@ You may notice you cannot chop down trees or dig the stone with your bare hands.
 Put the tree in your craft grid and you will receive 4 wood.
 Put one of the wood back into the craft grid and you will receive 4 sticks.
 
-WW-  W=wood   <-- Wooden Axe
-WS-  S=stick
+S-S  <-- Bucket
+-S-  S=steel ignot
+---
+
+WW-  <-- Wooden Axe
+WS-  W=wood, S=stick
+-S-
+
+WWW  <-- Wooden Pickaxe
+-S-  W=wood, S=stick
+-S-
+
+WWW  <-- Chest
+W-W  W=wood
+WWW
+
+CCC  <-- Furnace
+C-C  C=cobblestone
+CCC
+
+To learn all of the crafts you can either peek inside the register_craft.lua file, or 
+install one of these mods:
+Craft Guide - http://minetest.net/forum/viewtopic.php?id=2334
+Game Wiki - http://minetest.net/forum/viewtopic.php?id=2479
+
+
+-- Stone Generator --
+
+While you wait for your tree to grow, you should probably create a stone generator.  
+This is done by placing lava and water next to each other with air between.
+
+
+-- Tree Farm --
+
+Noticed those leaves in your inventory?  Craft them into a sapling then throw it on 
+the ground and it will grow into a tree.  Perhaps even an apple or jungle tree!
+
+LLL  L=leaves   <-- Sapling
+LLL  S=stick
 -S-  - empty
 
-WWW  W=wood   <-- Wooden Pickaxe
--S-  S=stick
--S-  - empty
+
+-- Infinite Water --
+
+If you want to create more water simply place your 2 water sources so they touch 
+diagonally.  Now when you take one with the bucket, it will be replaced.
 
 
 -- What's Next --
@@ -108,8 +157,8 @@ The rest is up to you.  Load your favorite minetest mods and start building your
 SINGLEPLAYER MAP
 ----------------------------------
 
-I have included 2 worldedit schems that will allow you to load the L-shaped map that
-you may be familiar with.
+I have included 2 worldedit schems that will allow you to load the L-shaped map similar to 
+the video above.
 
 schems/skyblock.we      <-- just the dirt
 schems/skyblock_plus.we <-- dirt, chest and tree
@@ -188,7 +237,7 @@ Thank you to the minetest community who has shared their code
 and knowledge with me.
 
 Special thanks in this mod to:
-PlizAdam - code to make a tree came from his farming mod
+PilzAdam - code to make a tree came from his farming mod
 RealBadAngel - help in IRC to make the spiral
 anyone else who i borrowed code from =)
 

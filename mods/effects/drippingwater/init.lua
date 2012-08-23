@@ -57,7 +57,7 @@ minetest.register_abm(
 --Cloudstone
 minetest.register_abm(
 	{nodenames = {"default:cloud"},
-	interval = 1,
+	interval = 0,
 	chance = 1,
 	action = function(pos)
 		if minetest.env:get_node({x=pos.x, y=pos.y -1, z=pos.z}).name == "air" and minetest.env:get_node({x=pos.x, y=pos.y -2, z=pos.z}).name == "air" then
@@ -66,3 +66,5 @@ minetest.register_abm(
 		end
 	end,
 })
+
+minetest.log("action", "[MOD]"..minetest.get_current_modname().." -- loaded from "..minetest.get_modpath(minetest.get_current_modname()))

@@ -76,23 +76,9 @@ end
 --
 
 local paintings = {
-  "paintings_1.png",
-  "paintings_2.png",
-  "paintings_3.png",
-  "paintings_4.png",
-  "paintings_5.png",
-  "paintings_6.png",
-  "paintings_7.png",
-  "paintings_8.png",
-
   "paintings_foresight.png",
   "paintings_apocalypse.png",
   "paintings_memories.png",
-  "paintings_pinkamena.png",
-  "paintings_sepia.png",
-  "paintings_sugar.png",
-  "paintings_expected.png",
-  "paintings_sleeping.png"
 }
 
 -- Below is very important code.

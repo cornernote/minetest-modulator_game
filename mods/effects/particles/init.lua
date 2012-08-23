@@ -26,7 +26,7 @@ minetest.register_abm({
 	end,
 })
 
-if minetest.get_modpath("jeija") ~= nil then -- Mesecons is installed
+if minetest.get_modpath("mesecons") ~= nil then -- Mesecons is installed
     MESECONDUST = {
         physical = true,
         collisionbox = {-0.1,-0.1,-0.1,0,0,0},
@@ -46,7 +46,7 @@ if minetest.get_modpath("jeija") ~= nil then -- Mesecons is installed
         interval = 1,
         chance = 5,
         action = function(pos)
-            --minetest.env:add_entity({x=pos.x+math.random()*0.5,y=pos.y,z=pos.z+math.random()*0.5}, "particles:mesecondust")
+            minetest.env:add_entity({x=pos.x+math.random()*0.5,y=pos.y,z=pos.z+math.random()*0.5}, "particles:mesecondust")
         end,
     })
 end
@@ -89,6 +89,9 @@ nodename2color = {
 --Sandcolor
 {"default:sand","sandcolor"},
 {"default:sandstone","sandcolor"},
+--Dark Sandcolor
+{"default:desert_stone", "darksandcolor"},
+{"default:desert_sand", "darksandcolor"},
 --Black
 {"default:gravel","black"},
 {"default:stone_with_coal","black"},
@@ -127,10 +130,10 @@ nodename2color = {
 {"mesecons_pressureplates:pressure_plate_wood_off", "brown"},
 {"mesecons_pressureplates:pressure_plate_wood_on", "brown"},
 {"mesecons_temperest:mesecon_socket_off", "gray"},
-{"mesecons_temperest:mesecon_socket_on", "red"},
+{"mesecons_temperest:mesecon_socket_on", "gray"},
 {"mesecons_temperest:mesecon_inverter_off", "gray"},
-{"mesecons_temperest:mesecon_inverter_on", "red"},
-{"mesecons_temperest:mesecon_plug", "black"},
+{"mesecons_temperest:mesecon_inverter_on", "gray"},
+{"mesecons_temperest:mesecon_plug", "gray"},
 {"mesecons_movestones:movestone", "gray"},
 {"mesecons_movestones:sticky_movestone", "gray"},
 }
@@ -172,3 +175,5 @@ minetest.register_on_dignode(function(pos, oldnode, digger)
         end
     end
 end)
+
+minetest.log("action", "[MOD]"..minetest.get_current_modname().." -- loaded from "..minetest.get_modpath(minetest.get_current_modname()))

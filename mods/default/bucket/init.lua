@@ -94,3 +94,6 @@ minetest.register_craft({
 	recipe = "bucket:bucket_lava",
 	burntime = 60,
 })
+
+
+minetest.log("action", "[MOD]"..minetest.get_current_modname().." -- loaded from "..minetest.get_modpath(minetest.get_current_modname()))
