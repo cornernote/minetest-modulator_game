@@ -1,6 +1,9 @@
 -- Minetest 0.4 mod: castle_wall
 -- See README.txt for licensing and other information.
 
+-- missing README.txt
+-- http://minetest.net/forum/viewtopic.php?pid=39271#p39271
+
 castle_wall = {}
 
 -- Node will be called castle_wall:castle_wall_<subname>
