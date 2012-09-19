@@ -1,11 +1,116 @@
-------------- Settings --------------
-BLOCK_BREAK_PARTICLES = 8
--------------------------------------
-SMOKE = {
+--[[
+
+Particles for Minetest
+
+Copyright (c) 2012 cornernote, Brett O'Donnell <cornernote@gmail.com>
+Source Code: https://github.com/cornernote/minetest-particles
+License: GPLv3
+
+MAIN LOADER
+
+]]--
+
+
+-- register dig particle
+minetest.register_entity("particles:particle", {
+	physical = true,
+	collisionbox = {-0.05,-0.05,-0.05,0.05,0.05,0.05},
+	timer = 0,
+	timer2 = 0,
+	on_activate = function(self, staticdata)
+		-- Let the entity move random-ish arround
+		local obj = self.object
+		obj:setacceleration({x=0, y=-5, z=0})
+		obj:setvelocity({x=(math.random(0,60)-30)/30, y=(math.random(0,60))/30, z=(math.random(0,60)-30)/30})
+		obj:setyaw(math.random(0,359)/180*math.pi)
+		self.timer = math.random(0, 6)/3
+	end,
+	on_step = function(self, dtime)
+		-- stop "sliding" on the ground
+		self.timer2 = self.timer2+dtime
+		if self.timer2 >= 0.5 then
+			if self.object:getvelocity().y == 0 then
+				self.object:setvelocity({x=0, y=0, z=0})
+			end
+			self.timer2 = 0
+		end
+		-- remove after ~3 seconds
+		self.timer = self.timer+dtime
+		if self.timer >= 3 then
+			self.object:remove()
+		end
+	end,
+})
+
+-- register_on_dignode
+minetest.register_on_dignode(function(pos, oldnode, digger)
+	local node = minetest.registered_nodes[oldnode.name]
+	-- if the no_particles group is set dont add particles
+	if node.groups.no_particles then
+		return
+	end
+	-- try to get the textures from the dig_result instead of the digged node
+	local tmp = minetest.get_node_drops(oldnode.name, digger:get_wielded_item():get_name())
+	if type(tmp) == "string" then
+		node = minetest.registered_nodes[tmp]
+	elseif type(tmp) == "table" and tmp[1] and tmp[1].get_name then
+		node = minetest.registered_nodes[tmp[1]:get_name()]
+	end
+	-- if dig result is an item
+	if node == nil then
+		node = minetest.registered_nodes[oldnode.name]
+		-- prevent unwanted effects
+		if node == nil then
+			return
+		end
+	end
+	-- create this many particles
+	for i=1,32 do
+		local dx = (math.random(0,10)-5)/10
+		local dy = (math.random(0,10)-5)/10
+		local dz = (math.random(0,10)-5)/10
+		
+		-- spawn at random position in the node
+		local obj = minetest.env:add_entity({x=pos.x+dx, y=pos.y+dy, z=pos.z+dz}, "particles:particle")
+		
+		-- set the textures
+		local textures = {}
+		local max = 1
+		for i=1,6 do
+			if node.tiles then
+				if node.tiles[i] then
+					max = i
+					textures[i] = node.tiles[i]
+				else
+					textures[i] = node.tiles[max]
+				end
+			else -- its a item
+				textures[i] = node.inventory_image
+			end
+		end
+		-- set size
+		local vis_size= math.random(5,15)/100
+		-- set drawtype
+		local vis = "cube"
+		-- make it upright_sprite if the drawtype of the node is not nodelike
+		if node.drawtype and node.drawtype ~= "normal" then
+			vis = "upright_sprite"
+		end
+		obj:set_properties({
+			textures = textures,
+			visual_size = {x=vis_size, y=vis_size},
+			visual = vis,
+		})
+	end
+end)
+
+-- register smoke particle
+minetest.register_entity("particles:smoke", {
     physical = true,
-    collisionbox = {-0.1,-0.1,-0.1,0,0,0},
+	visual_size = {x=0.25, y=0.25},
+	collisionbox = {-0.05,-0.05,-0.05,0.05,0.05,0.05},
     visual = "sprite",
-    textures = {"smoke.png"},
+    textures = {"smoke_puff.png"},
     on_step = function(self, dtime)
         self.object:setacceleration({x=0, y=0.5, z=0})
         self.timer = self.timer + dtime
@@ -14,166 +119,47 @@ SMOKE = {
         end
     end,
     timer = 0,
-}
+})
 
-minetest.register_entity("particles:smoke", SMOKE)
+-- register smoke abm
 minetest.register_abm({
-	nodenames = {"default:torch"},
-	interval = 10,
-	chance = 10,
+	nodenames = {"group:smokes","default:torch"},
+	interval = 5,
+	chance = 5,
 	action = function(pos)
-		minetest.env:add_entity({x=pos.x+math.random()*0.5,y=pos.y-0.25,z=pos.z+math.random()*0.5}, "particles:smoke")
+		minetest.env:add_entity({x=pos.x+math.random()*0.5,y=pos.y+0.75,z=pos.z+math.random()*0.5}, "particles:smoke")
 	end,
 })
 
-if minetest.get_modpath("mesecons") ~= nil then -- Mesecons is installed
-    MESECONDUST = {
-        physical = true,
-        collisionbox = {-0.1,-0.1,-0.1,0,0,0},
-        visual = "sprite",
-        textures = {"mesecondust.png"},
-        on_step = function(self, dtime)
-            self.timer = self.timer + dtime
-            if self.timer > 2.5 then
-                self.object:remove()
-            end
-        end,
-        timer = 0,
-    }
-    minetest.register_entity("particles:mesecondust", MESECONDUST)
-    minetest.register_abm({
-        nodenames = {"jeija:mesecon_on","jeija:wall_lever_on","jeija:mesecon_torch_on"},
-        interval = 1,
-        chance = 5,
-        action = function(pos)
-            minetest.env:add_entity({x=pos.x+math.random()*0.5,y=pos.y,z=pos.z+math.random()*0.5}, "particles:mesecondust")
-        end,
-    })
-end
+-- register signalbubble
+minetest.register_entity("particles:signalbubble", {
+	physical = true,
+	visual_size = {x=0.10, y=0.10},
+	collisionbox = {-0.05,-0.05,-0.05,0.05,0.05,0.05},
+	visual = "sprite",
+	textures = {"particles_signalbubble.png"},
+	timer = 0,
+	lifetime = 4,
+	on_step = function(self, dtime)
+		self.timer = self.timer + dtime
+		if self.timer > self.lifetime then
+			self.object:remove()
+		end
+	end,
+	on_activate = function(self, staticdata)
+		self.object:setacceleration({x=0, y=0.05, z=0})
+	end,
+})
 
-nodename2color = {
---Brown
-{"default:dirt","brown"},
-{"default:chest","brown"},
-{"default:chest_locked","brown"},
-{"default:wood","brown"},
-{"default:tree","brown"},
-{"default:jungletree","brown"},
-{"default:bookshelf","brown"},
-{"default:sign_wall","brown"},
-{"default:ladder","brown"},
-{"default:fence_wood","brown"},
---Red
-{"default:apple","red"},
-{"default:brick","red"},
---Green
-{"default:cactus","green"},
-{"default:junglegrass","green"},
-{"default:dirt_with_grass","green"},
-{"default:sapling","green"},
-{"default:papyrus","green"},
-{"default:leaves","green"},
---Gray
-{"default:cobble","gray"},
-{"default:furnace","gray"},
-{"default:stone","gray"},
-{"default:stone_with_iron","gray"},
-{"default:rail","gray"},
-{"default:mossycobble","gray"},
---Lightgray
-{"default:steelblock","lightgray"},
-{"default:clay","lightgray"},
---Yellow
-{"default:mese","yellow"},
-{"default:torch","yellow"},
---Sandcolor
-{"default:sand","sandcolor"},
-{"default:sandstone","sandcolor"},
---Dark Sandcolor
-{"default:desert_stone", "darksandcolor"},
-{"default:desert_sand", "darksandcolor"},
---Black
-{"default:gravel","black"},
-{"default:stone_with_coal","black"},
---White
-{"default:cloud","white"},
-{"default:glass","white"},
---=== Mesecons ===--
-{"mesecons_powerplant:power_plant", "yellow"},
-{"mesecons_random:removestone", "gray"},
-{"mesecons_lamp:lamp_off", "yellow"},
-{"mesecons_lamp:lamp_on", "yellow"},
-{"mesecons:mesecon_off", "yellow"},
-{"mesecons:mesecon_on", "yellow"},
-{"mesecons_detector:object_detector_off", "lightgray"},
-{"mesecons_detector:object_detector_on", "lightgray"},
-{"mesecons_wireless:wireless_inverter_on", "brown"},
-{"mesecons_wireless:wireless_inverter_off", "brown"},
-{"mesecons_wireless:wireless_receiver_on", "brown"},
-{"mesecons_wireless:wireless_receiver_off", "brown"},
-{"mesecons_wireless:wireless_transmitter_on", "brown"},
-{"mesecons_wireless:wireless_transmitter_off", "brown"},
-{"mesecons_switch:mesecon_switch_off", "gray"},
-{"mesecons_switch:mesecon_switch_off", "gray"},
-{"mesecons_button:button_on", "yellow"},
-{"mesecons_button:button_off", "yellow"},
-{"mesecons_pistons:piston_normal", "brown"},
-{"mesecons_pistons:piston_sticky", "brown"},
-{"mesecons_blinkyplant:blinky_plant_off", "yellow"},
-{"mesecons_blinkyplant:blinky_plant_on", "yellow"},
-{"mesecons_torch:mesecon_torch_off", "yellow"},
-{"mesecons_torch:mesecon_torch_on", "yellow"},
-{"mesecons_hydroturbine:hydro_turbine_off", "gray"},
-{"mesecons_hydroturbine:hydro_turbine_on", "gray"},
-{"mesecons_pressureplates:pressure_plate_stone_off", "gray"},
-{"mesecons_pressureplates:pressure_plate_stone_on", "gray"},
-{"mesecons_pressureplates:pressure_plate_wood_off", "brown"},
-{"mesecons_pressureplates:pressure_plate_wood_on", "brown"},
-{"mesecons_temperest:mesecon_socket_off", "gray"},
-{"mesecons_temperest:mesecon_socket_on", "gray"},
-{"mesecons_temperest:mesecon_inverter_off", "gray"},
-{"mesecons_temperest:mesecon_inverter_on", "gray"},
-{"mesecons_temperest:mesecon_plug", "gray"},
-{"mesecons_movestones:movestone", "gray"},
-{"mesecons_movestones:sticky_movestone", "gray"},
-}
+-- register signalbubble abm
+minetest.register_abm({
+	nodenames = {"group:signalbubbles","mesecons:mesecon_on","mesecons:wall_lever_on","mesecons:mesecon_torch_on"},
+	interval = 1,
+	chance = 5,
+	action = function(pos)
+		minetest.env:add_entity({x=pos.x+math.random()*0.5,y=pos.y,z=pos.z+math.random()*0.5}, "particles:signalbubble")
+	end,
+})
 
-reg_colors = {}
-
-for idx, tbl in pairs(nodename2color) do
-    nn = tbl[1]
-    color = tbl[2]
-    if reg_colors[color] == nil then
-        local TEMP = {
-            physical = true,
-            collisionbox = {-0.1,-0.1,-0.1,0,0,0},
-            visual = "sprite",
-            textures = {"p_"..color..".png"},
-            timer = 0,
-            on_step = function(self, dtime)
-                self.timer = self.timer + dtime
-                if self.timer > 1 then
-                    self.object:remove()
-                end
-            end,
-            on_activate = function(self, staticdata)
-                self.object:setacceleration({x=0, y=-7.5, z=0})
-            end,
-        }
-        minetest.register_entity("particles:p_"..color, TEMP)
-        reg_colors[color] = true
-    end
-end
-
-minetest.register_on_dignode(function(pos, oldnode, digger)
-    for idx, tbl in pairs(nodename2color) do
-        if oldnode.name == tbl[1] then
-            for x = 1,BLOCK_BREAK_PARTICLES,1 do
-                e = minetest.env:add_entity({x=pos.x+1-(math.random()*1.5),y=pos.y+0.25,z=pos.z+1-(math.random()*1.5)}, "particles:p_"..tbl[2])
-                e:setvelocity({x=math.random(),y=1,z=math.random()})
-            end
-        end
-    end
-end)
-
+-- log that we started
 minetest.log("action", "[MOD]"..minetest.get_current_modname().." -- loaded from "..minetest.get_modpath(minetest.get_current_modname()))

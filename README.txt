@@ -119,8 +119,16 @@ animatedfluids - http://minetest.net/forum/viewtopic.php?id=2420
 animatedtorches - http://minetest.net/forum/viewtopic.php?id=2132
 drippingwater - http://minetest.net/forum/viewtopic.php?id=1688
 item_drop - http://minetest.net/forum/viewtopic.php?id=2656
-particles - http://minetest.net/forum/viewtopic.php?id=1129
+particles - http://minetest.net/forum/viewtopic.php?id=3082
 smooth - unknown
+
+
+Inventory Mods
+----------
+bags - http://minetest.net/forum/viewtopic.php?id=3081
+home_gui - http://minetest.net/forum/viewtopic.php?id=3101
+infinite_chest - http://minetest.net/forum/viewtopic.php?id=3053
+inventory_plus - http://minetest.net/forum/viewtopic.php?id=3100
 
 
 Nature mods
