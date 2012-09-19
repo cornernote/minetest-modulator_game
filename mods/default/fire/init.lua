@@ -3,7 +3,7 @@
 minetest.register_node("fire:basic_flame", {
 	description = "Fire",
 	drawtype = "glasslike",
-	tile_images = {"fire_basic_flame.png"},
+	tiles = {"fire_basic_flame.png"},
 	light_source = 14,
 	groups = {igniter=2,dig_immediate=3},
 	drop = '',
@@ -186,5 +186,3 @@ minetest.register_abm({
 	end,
 })
 
-
-minetest.log("action", "[MOD]"..minetest.get_current_modname().." -- loaded from "..minetest.get_modpath(minetest.get_current_modname()))

@@ -11,7 +11,7 @@ License: GPLv3
 
 
 ----------------------------------
-DESCRIPTION
+Description
 ----------------------------------
 
 
@@ -25,40 +25,12 @@ http://cornernote.net/minetest/seablock/wiki
 
 
 ----------------------------------
-INSTALL INSTRUCTIONS
+Install Instructions
 ----------------------------------
 
 
 1) rename cornernote-minetest-seablock_game-* to seablock_game
 2) move seablock_game into /minetest/games/
-
-
-
-----------------------------------
-MULTIPLAYER SUPPORT
-----------------------------------
-
-Although the default settings will work, you may want to consider the starting positions.
-
-Each player is given a unique spawn position in an outwards spriral.
-
-If skyblock.WORLD_WIDTH=5 then players will be assigned in the following positions:
-(looking down)
-
-x+5|  21  22  23  24  25
-   |
-x+4|  20  07  08  09  10
-   |
-x+3|  19  06  01  02  11
-   |
-x+2|  18  05  04  03  12
-   |                      <-- The distance between the players is 
-x+1|  17  16  15  14  13      defined by skyblock.START_GAP.
-   +--------------------
-     z+1 z+2 z+3 z+4 z+5
-
-Note:
-Your world will be limited to skyblock.WORLD_WIDTH*skyblock.WORLD_WIDTH players.
 
 
 
@@ -86,6 +58,100 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 Credits
 ----------------------------------
 
-Thank you to the minetest community who has shared their code and knowledge with me.
 
-** COMING SOON - list of mods and authors **
+----------
+Mods and Addons
+----------
+
+
+From minetest_game
+----------
+bucket
+default
+dye
+fire
+vessels
+wool
+
+
+Block Mods
+----------
+3dforniture - http://minetest.net/forum/viewtopic.php?id=2207
+asphalt - http://minetest.net/forum/viewtopic.php?id=2984
+blox - http://minetest.net/forum/viewtopic.php?id=1960
+brick - http://minetest.net/forum/viewtopic.php?id=1631
+building_blocks - http://minetest.net/forum/viewtopic.php?id=674
+castle_wall - http://minetest.net/forum/viewtopic.php?id=2460
+clock_face - http://minetest.net/forum/viewtopic.php?id=807
+craft_guide - http://minetest.net/forum/viewtopic.php?id=2334
+fireplace - http://minetest.net/forum/viewtopic.php?id=1695
+homedecor - http://minetest.net/forum/viewtopic.php?id=2041
+industrial - http://minetest.net/forum/viewtopic.php?id=692
+jumping - http://minetest.net/forum/viewtopic.php?id=2957
+lights - http://minetest.net/forum/viewtopic.php?id=2433
+metals - http://minetest.net/forum/viewtopic.php?id=2526
+more_fences - http://minetest.net/forum/viewtopic.php?id=543
+moreblocks - http://minetest.net/forum/viewtopic.php?id=509
+morenyan - http://minetest.net/forum/viewtopic.php?id=2193
+papyrus_bed - http://minetest.net/forum/viewtopic.php?id=2708
+roof - http://minetest.net/forum/viewtopic.php?id=1254
+secret_passage - http://minetest.net/forum/viewtopic.php?id=667
+signs - http://minetest.net/forum/viewtopic.php?id=2736
+sim_paint - http://minetest.net/forum/viewtopic.php?id=1279
+stairsplus - http://minetest.net/forum/viewtopic.php?id=2092
+streets - http://minetest.net/forum/viewtopic.php?id=2984
+xbar - http://minetest.net/forum/viewtopic.php?id=2215
+xpanes - http://minetest.net/forum/viewtopic.php?id=2117
+
+
+Door mods
+----------
+gates - http://minetest.net/forum/viewtopic.php?id=896
+hatches - http://minetest.net/forum/viewtopic.php?id=609
+xdoors2 - http://minetest.net/forum/viewtopic.php?id=2757
+
+
+Environment mods
+----------
+skyblock - http://minetest.net/forum/viewtopic.php?id=2799
+animatedfluids - http://minetest.net/forum/viewtopic.php?id=2420
+animatedtorches - http://minetest.net/forum/viewtopic.php?id=2132
+drippingwater - http://minetest.net/forum/viewtopic.php?id=1688
+item_drop - http://minetest.net/forum/viewtopic.php?id=2656
+particles - http://minetest.net/forum/viewtopic.php?id=1129
+smooth - unknown
+
+
+Nature mods
+----------
+bushes - http://minetest.net/forum/viewtopic.php?id=729
+flowers - http://minetest.net/forum/viewtopic.php?id=2624
+irontrees - http://minetest.net/forum/viewtopic.php?id=729
+junglegrass - http://minetest.net/forum/viewtopic.php?id=2307
+mushrooms - http://minetest.net/forum/viewtopic.php?id=766
+nature - http://minetest.net/forum/viewtopic.php?id=729
+poisonivy - http://minetest.net/forum/viewtopic.php?id=1834
+vines - http://minetest.net/forum/viewtopic.php?id=2344
+habitat - http://minetest.net/forum/viewtopic.php?id=2619
+harvest - http://minetest.net/forum/viewtopic.php?id=2619
+
+
+Functional mods
+----------
+carts - http://minetest.net/forum/viewtopic.php?id=2451
+lottery - http://minetest.net/forum/viewtopic.php?id=2466
+mesecons - http://minetest.net/forum/viewtopic.php?id=628
+technic - http://minetest.net/forum/viewtopic.php?id=2538
+
+
+Tool mods
+----------
+flint_and_steel - http://minetest.net/forum/viewtopic.php?id=1683
+gloopores - http://minetest.net/forum/viewtopic.php?id=2734
+infinitytools - http://minetest.net/forum/viewtopic.php?id=2535
+moreores - http://minetest.net/forum/viewtopic.php?id=549
+poison - http://minetest.net/forum/viewtopic.php?id=1591
+ropes - http://mirkolinux.wordpress.com/2011/12/03/rope-mod-for-minetest/
+toolsizes - http://minetest.net/forum/viewtopic.php?id=2811
+workbench - http://minetest.net/forum/viewtopic.php?id=2000
+
