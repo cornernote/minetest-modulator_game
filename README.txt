@@ -135,6 +135,7 @@ Nature mods
 ----------
 bushes - http://minetest.net/forum/viewtopic.php?id=729
 flowers - http://minetest.net/forum/viewtopic.php?id=2624
+growing_trees - http://minetest.net/forum/viewtopic.php?id=978
 irontrees - http://minetest.net/forum/viewtopic.php?id=729
 junglegrass - http://minetest.net/forum/viewtopic.php?id=2307
 mushrooms - http://minetest.net/forum/viewtopic.php?id=766
