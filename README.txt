@@ -118,6 +118,7 @@ skyblock - http://minetest.net/forum/viewtopic.php?id=2799
 animatedfluids - http://minetest.net/forum/viewtopic.php?id=2420
 animatedtorches - http://minetest.net/forum/viewtopic.php?id=2132
 drippingwater - http://minetest.net/forum/viewtopic.php?id=1688
+drowning - http://minetest.net/forum/viewtopic.php?id=1402
 item_drop - http://minetest.net/forum/viewtopic.php?id=2656
 particles - http://minetest.net/forum/viewtopic.php?id=3082
 smooth - unknown
