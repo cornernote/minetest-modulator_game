@@ -1,89 +1,67 @@
 --[[
 
-SkyBlock for MineTest
+SkyBlock for Minetest
 
 Copyright (c) 2012 cornernote, Brett O'Donnell <cornernote@gmail.com>
 Source Code: https://github.com/cornernote/minetest-skyblock
 License: GPLv3
 
-REGISTER NODE
+REGISTER NODES
 
 ]]--
 
 
--- indestructable spawn block
-if skyblock.NEW_SPAWN_ON_DEATH == 1 then
-	-- not diggable
-	minetest.register_node("skyblock:spawn", {
-		description = "spawnblock",
-		tiles = {"default_nc_rb.png"},
-		is_ground_content = true,
-	})
-else
-	-- respawn on dig
-	minetest.register_node("skyblock:spawn", {
-		description = "spawnblock",
-		tiles = {"default_nc_rb.png"},
-		is_ground_content = true,
-		groups = {crumbly=2,cracky=2},
-		on_dig = skyblock.on_dig_spawn,
-	})
-end
+--
+-- Override Default Nodes
+--
 
--- stone should give a random drop
-minetest.register_node(":default:stone", {
-	description = "Stone",
-	tiles = {"default_stone.png"},
-	is_ground_content = true,
-	groups = {cracky=3},
-	drop = {
-		max_items = 1,
-		items = {
-			{items = {"default:mese"}, rarity = 150},
-			{items = {"default:desert_stone"}, rarity = 20},
-			{items = {"default:sandstone"}, rarity = 10},
-			{items = {"default:cobble"}}
-		}
-	},
-	legacy_mineral = true,
-	sounds = default.node_sound_stone_defaults(),
-})
+local entity
 
--- trees should not be choppable by hand
-minetest.register_node(":default:tree", {
-	description = "Tree",
-	tiles = {"default_tree_top.png", "default_tree_top.png", "default_tree.png"},
-	is_ground_content = true,
-	groups = {tree=1,snappy=1,choppy=2,flammable=2},
-	sounds = default.node_sound_wood_defaults(),
-})
+-- stone
+entity = skyblock.registered("node","default:stone")
+entity.drop = {
+	max_items = 1,
+	items = {
+		{items = {"default:desert_stone"}, rarity = 20},
+		{items = {"default:sandstone"}, rarity = 10},
+		{items = {"default:cobble"}}
+	}
+}
+minetest.register_node(":default:stone", entity)
 
--- leaves should be climbable and drop sticks
-minetest.register_node(":default:leaves", {
-	description = "Leaves",
-	drawtype = "allfaces_optional",
-	visual_scale = 1.3,
-	tiles = {"default_leaves.png"},
-	paramtype = "light",
-	groups = {snappy=3, leafdecay=3, flammable=2},
-	drop = {
-		max_items = 1,
-		items = {
-			{items = {"default:nyancat"}, rarity = 500},
-			{items = {"default:leaves"}}
-		}
-	},
-	climbable = true,
-	sounds = default.node_sound_leaves_defaults(),
-	walkable = false,
-})
+-- trees
+entity = skyblock.registered("node","default:tree")
+entity.groups = {tree=1,snappy=1,choppy=2,flammable=2}
+minetest.register_node(":default:tree", entity)
 
--- sandstone should drop 4 sand
-minetest.register_node(":default:sandstone", {
-	description = "Sandstone",
-	tiles = {"default_sandstone.png"},
-	is_ground_content = true,
-	groups = {crumbly=2,cracky=2},
-	drop = 'default:sandstone',
-	sounds = default.node_sound_stone_defaults(),
-})
+-- leaves
+entity = skyblock.registered("node","default:leaves")
+entity.drop = "default:leaves"
+entity.groups = {oddly_breakable_by_hand=1, snappy=3, leafdecay=3, flammable=2}
+entity.climbable = true
+minetest.register_node(":default:leaves", entity)
+
+-- sapling
+entity = skyblock.registered("node","default:sapling")
+entity.after_place_node = skyblock.generate_tree
+minetest.register_node(":default:sapling", entity)
+
+-- sandstone
+entity = skyblock.registered("node","default:sandstone")
+entity.drop = "default:sandstone"
+minetest.register_node(":default:sandstone", entity)
+
+-- bucket_empty
+entity = skyblock.registered("craftitem","bucket:bucket_empty")
+entity.on_use = skyblock.bucket_on_use
+minetest.register_craftitem(":bucket:bucket_empty", entity)
+
+-- bucket_water
+entity = skyblock.registered("craftitem","bucket:bucket_water")
+entity.on_use = skyblock.bucket_water_on_use
+minetest.register_craftitem(":bucket:bucket_water", entity)
+
+-- bucket_lava
+entity = skyblock.registered("craftitem","bucket:bucket_lava")
+entity.on_use = skyblock.bucket_lava_on_use
+minetest.register_craftitem(":bucket:bucket_lava", entity)

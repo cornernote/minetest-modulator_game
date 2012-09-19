@@ -1,6 +1,6 @@
 --[[
 
-SkyBlock for MineTest
+SkyBlock for Minetest
 
 Copyright (c) 2012 cornernote, Brett O'Donnell <cornernote@gmail.com>
 Source Code: https://github.com/cornernote/minetest-skyblock
@@ -141,6 +141,15 @@ minetest.register_craft({
 	output = "default:wood 4",
 	recipe = {
 		{"default:jungletree"},
+	}
+})
+
+-- mese
+minetest.register_craft({
+	output = "default:mese",
+	recipe = {
+		{"default:steelblock", "default:steelblock"},
+		{"default:steelblock", "default:steelblock"},
 	}
 })
 

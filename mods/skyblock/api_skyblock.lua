@@ -1,6 +1,6 @@
 --[[
 
-SkyBlock for MineTest
+SkyBlock for Minetest
 
 Copyright (c) 2012 cornernote, Brett O'Donnell <cornernote@gmail.com>
 Source Code: https://github.com/cornernote/minetest-skyblock
@@ -17,11 +17,14 @@ local last_start_id = 0
 local start_positions = {}
 local spawned_players = {}
 local spawnpos = {}
-local spawn_diggers = {}
-local filename = minetest.get_worldpath()..'/skyblock'
 
--- debug
-local dbg = function(message)
+--
+-- PUBLIC FUNCTIONS
+--
+
+
+-- log
+skyblock.log = function(message)
 	if not skyblock.DEBUG then
 		return
 	end
@@ -29,54 +32,29 @@ local dbg = function(message)
 end
 
 
---
--- PUBLIC FUNCTIONS
---
-
-
 -- give inventory
 skyblock.give_inventory = function(player)
-	dbg("give_inventory() to "..player:get_player_name())
-	player:get_inventory():add_item('main', 'default:tree')
+	skyblock.log("give_inventory() to "..player:get_player_name())
+	player:get_inventory():add_item('main', 'default:stick')
 	player:get_inventory():add_item('main', 'default:leaves 6')
-	player:get_inventory():add_item('main', 'default:water_source 2')
-	player:get_inventory():add_item('main', 'bucket:bucket_lava')
-	player:get_inventory():add_item('main', 'default:coal_lump')
-	player:get_inventory():add_item('main', 'default:iron_lump')
 end
 
 
 -- check inventory (needs to match the given items above)
 skyblock.check_inventory = function(player)
-	dbg("check_inventory() for "..player:get_player_name())
+	skyblock.log("check_inventory() for "..player:get_player_name())
 	local inv = player:get_inventory()
 	local stack
 	
 	stack = inv:get_stack('main', 1)
-	if stack:get_name() ~= 'default:tree' or stack:get_count() ~= 1 then
+	if stack:get_name() ~= 'default:stick' or stack:get_count() ~= 1 then
 		return false
 	end
 	stack = inv:get_stack('main', 2)
 	if stack:get_name() ~= 'default:leaves' or stack:get_count() ~= 6 then
 		return false
 	end
-	stack = inv:get_stack('main', 3)
-	if stack:get_name() ~= 'default:water_source' or stack:get_count() ~= 2 then
-		return false
-	end
-	stack = inv:get_stack('main', 4)
-	if stack:get_name() ~= 'bucket:bucket_lava' or stack:get_count() ~= 1 then
-		return false
-	end
-	stack = inv:get_stack('main', 5)
-	if stack:get_name() ~= 'default:coal_lump' or stack:get_count() ~= 1 then
-		return false
-	end
-	stack = inv:get_stack('main', 6)
-	if stack:get_name() ~= 'default:iron_lump' or stack:get_count() ~= 1 then
-		return false
-	end
-	for i=7,inv:get_size("main") do
+	for i=3,inv:get_size("main") do
 		stack = inv:get_stack('main', i)
 		if stack:get_name() ~= "" then
 			return false
@@ -95,7 +73,7 @@ end
 
 -- empty inventory
 skyblock.empty_inventory = function(player)
-	dbg("empty_inventory() from "..player:get_player_name())
+	skyblock.log("empty_inventory() from "..player:get_player_name())
 	local inv = player:get_inventory()
 	if not inv:is_empty("main") then
 		for i=1,inv:get_size("main") do
@@ -113,7 +91,7 @@ end
 -- check if a player has a spawn position assigned, if so return it
 skyblock.has_spawn = function(player_name)
 	local spawn = spawnpos[player_name]
-	dbg("has_spawn() for "..player_name.." is "..dump(spawn))
+	skyblock.log("has_spawn() for "..player_name.." is "..dump(spawn))
 	if spawn then
 		return spawn
 	end
@@ -123,20 +101,20 @@ end
 -- get players spawn position
 skyblock.get_spawn = function(player_name)
 	local spawn = spawnpos[player_name]
-	if spawn and minetest.env:get_node(spawn).name == "skyblock:spawn" then
-		dbg("get_spawn() for "..player_name.." is "..dump(spawn))
+	if spawn and minetest.env:get_node(spawn).name == "skyblock:level_1" then
+		skyblock.log("get_spawn() for "..player_name.." is "..dump(spawn))
 		return spawn
 	end
-	dbg("get_spawn() for "..player_name.." is unknown")
+	skyblock.log("get_spawn() for "..player_name.." is unknown")
 end
 
 
 -- set players spawn position
 skyblock.set_spawn = function(player_name, pos)
-	dbg("set_spawn() for "..player_name.." at "..dump(pos))
+	skyblock.log("set_spawn() for "..player_name.." at "..dump(pos))
 	spawnpos[player_name] = pos
 	-- save the spawn data from the table to the file
-	local output = io.open(filename..".spawn", "w")
+	local output = io.open(skyblock.FILENAME..".spawn", "w")
 	for i, v in pairs(spawnpos) do
 		if v ~= nil then
 			output:write(v.x.." "..v.y.." "..v.z.." "..i.."\n")
@@ -148,9 +126,9 @@ end
 
 -- get next spawn position
 skyblock.get_next_spawn = function()
-	dbg("get_next_spawn()")
+	skyblock.log("get_next_spawn()")
 	last_start_id = last_start_id+1
-	local output = io.open(filename..".last_start_id", "w")
+	local output = io.open(skyblock.FILENAME..".last_start_id", "w")
 	output:write(last_start_id)
 	io.close(output)
 	local spawn = start_positions[last_start_id]
@@ -163,55 +141,48 @@ end
 
 -- handle player spawn setup
 skyblock.spawn_player = function(player)
-	dbg("spawn_player() "..player:get_player_name())
-
+	local player_name = player:get_player_name()
+	skyblock.log("spawn_player() "..player_name)
+	
 	-- find the player spawn point
-	local spawn = skyblock.has_spawn(player:get_player_name())
+	local spawn = skyblock.has_spawn(player_name)
 	if spawn == nil then
 		spawn = skyblock.get_next_spawn()
-		skyblock.set_spawn(player:get_player_name(),spawn)
+		skyblock.set_spawn(player_name,spawn)
 	end
 	
 	-- already has a spawn, teleport and return true 
-	if minetest.env:get_node(spawn).name == "skyblock:spawn" then
+	if minetest.env:get_node(spawn).name == "skyblock:level_1" then
 		player:setpos({x=spawn.x,y=spawn.y+skyblock.SPAWN_HEIGHT,z=spawn.z})
 		player:set_hp(20)
 		return true
 	end
 
 	-- add the start block and teleport the player
-	skyblock.make_spawn_blocks(spawn)
+	skyblock.make_spawn_blocks(spawn,player_name)
 	player:setpos({x=spawn.x,y=spawn.y+skyblock.SPAWN_HEIGHT,z=spawn.z})
 	player:set_hp(20)
 end
 
 
--- handle digging the spawn block
-skyblock.on_dig_spawn = function(pos, node, digger)
-	local player_name = digger:get_player_name()
-	local spawn = skyblock.get_spawn(player_name)
-	dbg("on_dig_spawn() for "..player_name)
-
-	-- setup trigger for new spawn
-	spawn_diggers[player_name] = true
-
-	-- kill them
-	digger:set_hp(0)
-end
-
-
 -- on_respawn
+skyblock.spawn_diggers = {}
 skyblock.on_respawnplayer = function(player)
 	local player_name = player:get_player_name()
 	local spawn = skyblock.get_spawn(player_name)
-	dbg("on_respawnplayer() for "..player_name)
+	skyblock.log("on_respawnplayer() for "..player_name)
 
 	-- empty inventory
 	skyblock.empty_inventory(player)
 	
+	-- reset achievements
+	if achievements ~= nil then
+		achievements.reset(player_name)
+	end
+	
 	-- give them a new position
-	if skyblock.NEW_SPAWN_ON_DEATH or spawn_diggers[player_name] ~= nil then
-		if spawn_diggers[player_name] ~= nil then spawn_diggers[player_name] = nil end
+	if skyblock.spawn_diggers[player_name] ~= nil then
+		if skyblock.spawn_diggers[player_name] ~= nil then skyblock.spawn_diggers[player_name] = nil end
 		
 		-- give inventory
 		skyblock.give_inventory(player)
@@ -241,7 +212,7 @@ skyblock.globalstep = function(dtime)
 
 			-- handle new player spawn setup (no more than once per interval)
 			if spawn_timer > skyblock.SPAWN_THROTLE then
-				dbg("globalstep() new spawn for "..player_name.." (not spawned)")
+				skyblock.log("globalstep() new spawn for "..player_name.." (not spawned)")
 				if skyblock.get_spawn(player:get_player_name()) or skyblock.spawn_player(player) then
 					spawned_players[player:get_player_name()] = true
 				end
@@ -257,14 +228,14 @@ skyblock.globalstep = function(dtime)
 				-- hit the bottom, kill them (no more than once per interval)
 				if pos.y < skyblock.WORLD_BOTTOM then
 					if skyblock.check_inventory(player) then
-						dbg("globalstep() "..player_name.." has fallen too far, but dont kill them... yet =)")
+						skyblock.log("globalstep() "..player_name.." has fallen too far, but dont kill them... yet =)")
 						local spawn = skyblock.has_spawn(player:get_player_name())
 						if spawn then
-							skyblock.make_spawn_blocks(spawn)
+							skyblock.make_spawn_blocks(spawn,player:get_player_name())
 							skyblock.spawn_player(player)
 						end
 					else
-						dbg("globalstep() "..player_name.." has fallen too far at "..dump(pos).."... kill them now")
+						skyblock.log("globalstep() "..player_name.." has fallen too far at "..dump(pos).."... kill them now")
 						player:set_hp(0)
 					end
 				end
@@ -286,7 +257,7 @@ skyblock.globalstep = function(dtime)
 					minetest.chat_send_player(player_name, "CHEATING IS NOT ALLOWED!")
 					minetest.chat_send_all(player_name.." was CHEATING! (but we stopped that)")
 					minetest.set_player_privs(player_name, privs)
-					minetest.auth_reload()
+					minetest.auth_reload() -- does not seem to save =(
 				end
 				]]--
 				
@@ -309,75 +280,109 @@ skyblock.globalstep = function(dtime)
 end
 
 
--- handle flatland generation (code taken from flatland by kddekadenz)
-skyblock.on_generated = function(minp, maxp)
-	if (skyblock.FLATLAND_TOP_NODE == "air" or skyblock.FLATLAND_TOP_NODE == nil) and (skyblock.FLATLAND_BOTTOM_NODE == "air" or skyblock.FLATLAND_BOTTOM_NODE == nil) then
+-- prevent lava bucket too far from spawn
+skyblock.bucket_lava_on_use = function(itemstack, user, pointed_thing)
+	-- Must be pointing to node
+	if pointed_thing.type ~= "node" then
 		return
 	end
-	for x = minp.x, maxp.x do
-		for z = minp.z, maxp.z do
-			for ly = minp.y, maxp.y do
-			local y = maxp.y + minp.y - ly
-			local p = {x = x, y = y, z = z}
-				if y > 2 then
-					minetest.env:remove_node(p)
-				end
-				if y < 2 then
-					minetest.env:add_node(p, {name=skyblock.FLATLAND_BOTTOM_NODE})
-				end
-				if y == 2 then
-					minetest.env:add_node(p, {name=skyblock.FLATLAND_TOP_NODE})
-				end
-			end
+	-- Check if pointing to a liquid
+	n = minetest.env:get_node(pointed_thing.under)
+	if bucket.liquids[n.name] == nil then
+		-- Not a liquid
+
+		-- begin anti-grief change
+		local player_name = user:get_player_name()
+		local spawn = skyblock.has_spawn(player_name)
+		local range = skyblock.START_GAP/3 -- how far from spawn you can use lava
+		local pos = pointed_thing.under
+		if spawn==nil or (pos.x-spawn.x > range or pos.x-spawn.x < range*-1) or (pos.y-spawn.y > range/2 or pos.y-spawn.y < range*-1/2) or (pos.z-spawn.z > range or pos.z-spawn.z < range*-1) then
+			minetest.chat_send_player(player_name, "Cannot use bucket so far from your home.")
+			return
 		end
+		-- end anti-grief change
+
+		minetest.env:add_node(pointed_thing.above, {name="default:lava_source"})
+	elseif n.name ~= "default:lava_source" then
+		-- It's a liquid
+		minetest.env:add_node(pointed_thing.under, {name="default:lava_source"})
+	end
+
+	-- begin track bucket achievements
+	achievements.bucket_lava_on_use(itemstack, user, pointed_thing)
+	-- end track bucket achievements
+
+	return {name="bucket:bucket_empty"}
+end
+
+
+-- handle bucket_water usage
+skyblock.bucket_water_on_use = function(itemstack, user, pointed_thing)
+	-- Must be pointing to node
+	if pointed_thing.type ~= "node" then
+		return
+	end
+	-- Check if pointing to a liquid
+	n = minetest.env:get_node(pointed_thing.under)
+	if bucket.liquids[n.name] == nil then
+		-- Not a liquid
+
+		-- begin anti-grief change
+		local player_name = user:get_player_name()
+		local spawn = skyblock.has_spawn(player_name)
+		local range = skyblock.START_GAP/3 -- how far from spawn you can use water
+		local pos = pointed_thing.under
+		if spawn==nil or (pos.x-spawn.x > range or pos.x-spawn.x < range*-1) or (pos.y-spawn.y > range/2 or pos.y-spawn.y < range*-1/2) or (pos.z-spawn.z > range or pos.z-spawn.z < range*-1) then
+			minetest.chat_send_player(player_name, "Cannot use bucket so far from your home.")
+			return
+		end
+		-- end anti-grief change
+
+		minetest.env:add_node(pointed_thing.above, {name="default:water_source"})
+	elseif n.name ~= "default:water_source" then
+		-- It's a liquid
+		minetest.env:add_node(pointed_thing.under, {name="default:water_source"})
+	end
+
+	-- begin track bucket achievements
+	achievements.bucket_water_on_use(itemstack, user, pointed_thing)
+	-- end track bucket achievements
+
+	return {name="bucket:bucket_empty"}
+end
+
+
+-- handle bucket usage
+skyblock.bucket_on_use = function(itemstack, user, pointed_thing)
+	-- Must be pointing to node
+	if pointed_thing.type ~= "node" then
+		return
+	end
+	-- Check if pointing to a liquid source
+	n = minetest.env:get_node(pointed_thing.under)
+	liquiddef = bucket.liquids[n.name]
+	if liquiddef ~= nil and liquiddef.source == n.name and liquiddef.itemname ~= nil then
+		
+		-- begin track bucket achievements
+		achievements.bucket_on_use(itemstack, user, pointed_thing)
+		-- end track bucket achievements
+	
+		minetest.env:add_node(pointed_thing.under, {name="air"})
+		return {name=liquiddef.itemname}
 	end
 end
 
 
--- build start block
-skyblock.make_spawn_blocks = function(pos)
-	dbg("make_spawn_blocks() at "..dump(pos))
-	
-	-- sphere
-	if skyblock.SPHERE_RADIUS > 0 then
-		skyblock.make_sphere({x=pos.x,y=pos.y-skyblock.SPHERE_RADIUS,z=pos.z},skyblock.SPHERE_RADIUS,skyblock.SPHERE_NODE,skyblock.SPHERE_HOLLOW)
-	end
-
-	-- level 0 - spawn
-	minetest.env:add_node(pos, {name="skyblock:spawn"})
-
-	-- level -1 - lava_source and dirt
-	for x=-1,1 do
-		for z=-1,1 do
-			if x==0 and z==0 then
-				minetest.env:add_node({x=pos.x,y=pos.y-1,z=pos.z}, {name="default:lava_source"})
-			else
-				minetest.env:add_node({x=pos.x+x,y=pos.y-1,z=pos.z+z}, {name="default:dirt"})
-			end
-		end
-	end
-
-	-- level -2 - dirt
-	minetest.env:add_node({x=pos.x,y=pos.y-2,z=pos.z}, {name="default:dirt"})
-	
-	-- level -2 -- ocean
-	if skyblock.MODE == "water" or skyblock.MODE == "lava"  then
-		local node_name = "default:water_source"
-		if skyblock.MODE == "lava" then
-			node_name = "default:lava_source"
-		end
-		minetest.env:add_node({x=pos.x-5,y=pos.y-2,z=pos.z-5}, {name=node_name})
-		minetest.env:add_node({x=pos.x-5,y=pos.y-2,z=pos.z+5}, {name=node_name})
-		minetest.env:add_node({x=pos.x+5,y=pos.y-2,z=pos.z-5}, {name=node_name})
-		minetest.env:add_node({x=pos.x+5,y=pos.y-2,z=pos.z+5}, {name=node_name})
-	end
-
+-- build spawn block
+skyblock.make_spawn_blocks = function(pos, player_name)
+	skyblock.log("make_spawn_blocks() at "..dump(pos).." for "..player_name)
+	levels[1].make_start_blocks(pos, player_name)
 end
 
 
 -- make a tree (based on rubber tree in farming by PilzAdam)
 skyblock.generate_tree = function(pos)
-	dbg("generate_tree() at "..dump(pos))
+	skyblock.log("generate_tree() at "..dump(pos))
 	
 	-- check if we have space to make a tree
 	for dy=1,4 do
@@ -526,7 +531,7 @@ end
 
 -- load the spawn data from disk
 local load_spawn = function()
-    local input = io.open(filename..".spawn", "r")
+    local input = io.open(skyblock.FILENAME..".spawn", "r")
     if input then
         while true do
             local x = input:read("*n")
@@ -548,18 +553,18 @@ load_spawn() -- run it now
 
 -- load the start positions from disk
 local load_start_positions = function()
-    local input = io.open(filename..".start_positions", "r")
+    local input = io.open(skyblock.FILENAME..".start_positions", "r")
 
 	-- create start_positions file if needed
     if not input then
-		local output = io.open(filename..".start_positions", "w")
+		local output = io.open(skyblock.FILENAME..".start_positions", "w")
 		local pos
 		for i,v in ripairs(spiralt(skyblock.WORLD_WIDTH)) do -- get positions using spiral
 			pos = {x=v.x*skyblock.START_GAP, y=skyblock.START_HEIGHT, z=v.z*skyblock.START_GAP}
 			output:write(pos.x.." "..pos.y.." "..pos.z.."\n")
 		end
 		io.close(output)
-		input = io.open(filename..".start_positions", "r")
+		input = io.open(skyblock.FILENAME..".start_positions", "r")
 	end
 	
 	-- read start positions
@@ -580,14 +585,14 @@ load_start_positions() -- run it now
 
 -- load the last start position from disk
 local load_last_start_id = function()
-	local input = io.open(filename..".last_start_id", "r")
+	local input = io.open(skyblock.FILENAME..".last_start_id", "r")
 	
 	-- create last_start_id file if needed
     if not input then
-		local output = io.open(filename..".last_start_id", "w")
+		local output = io.open(skyblock.FILENAME..".last_start_id", "w")
 		output:write(last_start_id)
 		io.close(output)
-		input = io.open(filename..".last_start_id", "r")
+		input = io.open(skyblock.FILENAME..".last_start_id", "r")
 	end
 	
 	-- read last start id
@@ -599,3 +604,22 @@ local load_last_start_id = function()
 	
 end
 load_last_start_id() -- run it now
+
+
+-- registered
+skyblock.registered = function(case,name)
+	local params = {}
+	local list
+	if case == "item" then list = minetest.registered_items end
+	if case == "node" then list = minetest.registered_nodes end
+	if case == "craftitem" then list = minetest.registered_craftitems end
+	if case == "tool" then list = minetest.registered_tools end
+	if case == "entity" then list = minetest.registered_entities end
+	if list then
+		for k,v in pairs(list[name]) do
+			params[k] = v
+		end
+	end
+	return params
+end
+
