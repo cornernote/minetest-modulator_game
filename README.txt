@@ -169,6 +169,7 @@ technic - http://minetest.net/forum/viewtopic.php?id=2538
 Tool mods
 ----------
 flint_and_steel - http://minetest.net/forum/viewtopic.php?id=1683
+food - http://minetest.net/forum/viewtopic.php?id=2960
 gloopores - http://minetest.net/forum/viewtopic.php?id=2734
 infinitytools - http://minetest.net/forum/viewtopic.php?id=2535
 moreores - http://minetest.net/forum/viewtopic.php?id=549
