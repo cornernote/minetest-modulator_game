@@ -81,6 +81,7 @@ asphalt - http://minetest.net/forum/viewtopic.php?id=2984
 beds - http://minetest.net/forum/viewtopic.php?id=2625
 blox - http://minetest.net/forum/viewtopic.php?id=1960
 brick - http://minetest.net/forum/viewtopic.php?id=1631
+bobblocks - http://minetest.net/forum/viewtopic.php?id=1274
 building_blocks - http://minetest.net/forum/viewtopic.php?id=674
 castle_wall - http://minetest.net/forum/viewtopic.php?id=2460
 clock_face - http://minetest.net/forum/viewtopic.php?id=807
