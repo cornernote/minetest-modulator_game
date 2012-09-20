@@ -132,6 +132,7 @@ drowning - http://minetest.net/forum/viewtopic.php?id=1402
 item_drop - http://minetest.net/forum/viewtopic.php?id=2656
 particles - http://minetest.net/forum/viewtopic.php?id=3082
 smooth - unknown
+worldtime - http://minetest.net/forum/viewtopic.php?id=2205
 
 
 Inventory Mods
