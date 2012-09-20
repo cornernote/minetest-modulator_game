@@ -123,6 +123,7 @@ xdoors2 - http://minetest.net/forum/viewtopic.php?id=2757
 
 Environment mods
 ----------
+ambience - http://minetest.net/forum/viewtopic.php?id=2807
 animatedfluids - http://minetest.net/forum/viewtopic.php?id=2420
 animatedtorches - http://minetest.net/forum/viewtopic.php?id=2132
 bones - http://minetest.net/forum/viewtopic.php?id=2206
