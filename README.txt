@@ -144,6 +144,7 @@ inventory_plus - http://minetest.net/forum/viewtopic.php?id=3100
 Nature mods
 ----------
 bushes - http://minetest.net/forum/viewtopic.php?id=729
+conifers - http://minetest.net/forum/viewtopic.php?id=1453
 flowers - http://minetest.net/forum/viewtopic.php?id=2624
 growing_trees - http://minetest.net/forum/viewtopic.php?id=978
 irontrees - http://minetest.net/forum/viewtopic.php?id=729

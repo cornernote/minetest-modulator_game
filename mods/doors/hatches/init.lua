@@ -44,8 +44,8 @@ minetest.register_node('hatches:hatch_opened', {
         type = "wallmounted",
     },
     drop = 'hatches:hatch_closed',
-	on_punch = on_hatch_punched,
-	groups = { choppy=2, dig_immediate=2 },
+    on_punch = on_hatch_punched,
+    groups = { choppy=2, dig_immediate=2 },
 })
 
 minetest.register_node('hatches:hatch_closed', {
@@ -55,8 +55,8 @@ minetest.register_node('hatches:hatch_closed', {
     inventory_image = 'hatch.png',
     wield_image = "hatch.png",
     paramtype = 'light',
-	is_ground_content = true,
-	walkable = true,
+    is_ground_content = true,
+    walkable = true,
     node_box = {
         type = "fixed",
         fixed = {-1/2, 2/5, -1/2, 1/2, 1/2, 1/2},
@@ -65,7 +65,7 @@ minetest.register_node('hatches:hatch_closed', {
         type = "fixed",
         fixed = {-1/2, 2/5, -1/2, 1/2, 1/2, 1/2},
     },
-	on_punch = on_hatch_punched,
+    on_punch = on_hatch_punched,
     groups = { choppy=2, dig_immediate=2 },
 })
 
@@ -75,12 +75,9 @@ minetest.register_craft({
     recipe = {
         {'default:wood 1', 'default:wood 1', 'default:wood 1'},
         {'default:wood 1', 'default:wood 1', 'default:wood 1'},
-        {'default:wood 1', 'default:wood 1', 'default:wood 1'},
     },
 })
 
 -- Mesecon Stuff:
 mesecon:register_on_signal_on(on_hatch_punched)
 mesecon:register_on_signal_off(on_hatch_punched)
-
-minetest.log("action", "[MOD]"..minetest.get_current_modname().." -- loaded from "..minetest.get_modpath(minetest.get_current_modname()))
