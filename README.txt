@@ -1,5 +1,5 @@
 ----------------------------------
-SEABLOCK FOR MINETEST
+CORNERNOTE'S GAME FOR MINETEST
 ----------------------------------
 
 
@@ -15,12 +15,10 @@ Description
 ----------------------------------
 
 
-Build a world starting from a small island in the sea.
-
 This game has many mods installed for a fun and interesting gaming experience.
 
-To view the items and craft recipies, please visit the SeaBlock Game Wiki:
-http://cornernote.net/minetest/seablock/wiki
+To view the items and craft recipies, please visit the Game Wiki:
+http://cornernote.net/minetest/cornernote_game/wiki
 
 
 
@@ -29,8 +27,8 @@ Install Instructions
 ----------------------------------
 
 
-1) rename cornernote-minetest-seablock_game-* to seablock_game
-2) move seablock_game into /minetest/games/
+1) rename cornernote-minetest-cornernote_game-* to cornernote_game
+2) move cornernote_game into /minetest/games/
 
 
 
@@ -67,6 +65,7 @@ Mods and Addons
 From minetest_game
 ----------
 bucket
+creative
 default
 dye
 fire
@@ -124,7 +123,6 @@ xdoors2 - http://minetest.net/forum/viewtopic.php?id=2757
 
 Environment mods
 ----------
-skyblock - http://minetest.net/forum/viewtopic.php?id=2799
 animatedfluids - http://minetest.net/forum/viewtopic.php?id=2420
 animatedtorches - http://minetest.net/forum/viewtopic.php?id=2132
 bones - http://minetest.net/forum/viewtopic.php?id=2206
@@ -136,7 +134,7 @@ smooth - unknown
 worldtime - http://minetest.net/forum/viewtopic.php?id=2205
 
 
-Inventory Mods
+Inventory mods
 ----------
 bags - http://minetest.net/forum/viewtopic.php?id=3081
 home_gui - http://minetest.net/forum/viewtopic.php?id=3101
@@ -148,6 +146,7 @@ Nature mods
 ----------
 bushes - http://minetest.net/forum/viewtopic.php?id=729
 conifers - http://minetest.net/forum/viewtopic.php?id=1453
+farming - http://minetest.net/forum/viewtopic.php?id=2787
 flowers - http://minetest.net/forum/viewtopic.php?id=2624
 growing_trees - http://minetest.net/forum/viewtopic.php?id=978
 irontrees - http://minetest.net/forum/viewtopic.php?id=729

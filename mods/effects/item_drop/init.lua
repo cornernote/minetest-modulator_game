@@ -90,13 +90,17 @@ minetest.register_globalstep(function(dtime)
 	
 	for i,item in ipairs(item_timer) do
 		if item ~= nil then
-			if item:get_luaentity().timer == nil then
-				item:get_luaentity().timer = 0
-			end
-			item:get_luaentity().timer = item:get_luaentity().timer + dtime
-			if item:get_luaentity().timer > 1 then
-				item:get_luaentity().collect = true
+			if item:get_luaentity() == nil then
 				table.remove(item_timer, i)
+			else
+				if item:get_luaentity().timer == nil then
+					item:get_luaentity().timer = 0
+				end
+				item:get_luaentity().timer = item:get_luaentity().timer + dtime
+				if item:get_luaentity().timer > 1 then
+					item:get_luaentity().collect = true
+					table.remove(item_timer, i)
+				end
 			end
 		end
 	end

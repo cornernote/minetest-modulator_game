@@ -26,7 +26,7 @@ for _, colour in ipairs(DYES) do
 	minetest.register_node('blox:' .. name, {
 		description = colour .. " checker",
 		tiles = { 'blox_' .. name .. '.png' },
-		inventory_image = 'blox_' .. name .. '.png',
+		--inventory_image = 'blox_' .. name .. '.png',
 		is_ground_content = true,
 		groups = {cracky=3},
 		sounds = default.node_sound_stone_defaults(),
@@ -37,7 +37,7 @@ for _, colour in ipairs(DYES) do
 	minetest.register_node('blox:' .. name, {
 		description = colour .. " stone square",
 		tiles = { 'blox_' .. name .. '.png' },
-		inventory_image = 'blox_' .. name .. '.png',
+		--inventory_image = 'blox_' .. name .. '.png',
 		is_ground_content = true,
 		groups = {cracky=3},
 		sounds = default.node_sound_stone_defaults(),
@@ -48,7 +48,7 @@ for _, colour in ipairs(DYES) do
 	minetest.register_node('blox:' .. name, {
 		description = colour .. " stone",
 		tiles = { 'blox_' .. name .. '.png' },
-		inventory_image = 'blox_' .. name .. '.png',
+		--inventory_image = 'blox_' .. name .. '.png',
 		is_ground_content = true,
 		groups = {cracky=3},
 		sounds = default.node_sound_stone_defaults(),
@@ -59,7 +59,7 @@ for _, colour in ipairs(DYES) do
 	minetest.register_node('blox:' .. name, {
 		description = colour .. " cross",
 		tiles = { 'blox_' .. name .. '.png' },
-		inventory_image = 'blox_' .. name .. '.png',
+		--inventory_image = 'blox_' .. name .. '.png',
 		is_ground_content = true,
 		groups = {cracky=3},
 		sounds = default.node_sound_stone_defaults(),
@@ -70,7 +70,7 @@ for _, colour in ipairs(DYES) do
 	minetest.register_node('blox:' .. name, {
 		description = colour .. " wood",
 		tiles = { 'blox_' .. name .. '.png' },
-		inventory_image = 'blox_' .. name .. '.png',
+		--inventory_image = 'blox_' .. name .. '.png',
 		is_ground_content = true,
 		groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		sounds = default.node_sound_wood_defaults(),
@@ -81,7 +81,7 @@ for _, colour in ipairs(DYES) do
 	minetest.register_node('blox:' .. name, {
 		description = colour .. " decorative block",
 		tiles = { 'blox_' .. name .. '.png' },
-		inventory_image = 'blox_' .. name .. '.png',
+		--inventory_image = 'blox_' .. name .. '.png',
 		is_ground_content = true,
 		groups = {cracky=3},
 		sounds = default.node_sound_stone_defaults(),
@@ -92,7 +92,7 @@ for _, colour in ipairs(DYES) do
 	minetest.register_node('blox:' .. name, {
 		description = colour .. " large checker",
 		tiles = { 'blox_' .. name .. '.png' },
-		inventory_image = 'blox_' .. name .. '.png',
+		--inventory_image = 'blox_' .. name .. '.png',
 		is_ground_content = true,
 		groups = {cracky=3},
 		sounds = default.node_sound_stone_defaults(),
@@ -103,7 +103,7 @@ for _, colour in ipairs(DYES) do
 	minetest.register_node('blox:' .. name, {
 		description = colour .. " large wooden checker",
 		tiles = { 'blox_' .. name .. '.png' },
-		inventory_image = 'blox_' .. name .. '.png',
+		--inventory_image = 'blox_' .. name .. '.png',
 		is_ground_content = true,
 		groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		sounds = default.node_sound_wood_defaults(),
@@ -114,7 +114,7 @@ for _, colour in ipairs(DYES) do
 	minetest.register_node('blox:' .. name, {
 		description = colour .. " wooden checker",
 		tiles = { 'blox_' .. name .. '.png' },
-		inventory_image = 'blox_' .. name .. '.png',
+		--inventory_image = 'blox_' .. name .. '.png',
 		is_ground_content = true,
 		groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		sounds = default.node_sound_wood_defaults(),
@@ -125,7 +125,7 @@ for _, colour in ipairs(DYES) do
 	minetest.register_node('blox:' .. name, {
 		description = colour .. " corners",
 		tiles = { 'blox_' .. name .. '.png' },
-		inventory_image = 'blox_' .. name .. '.png',
+		--inventory_image = 'blox_' .. name .. '.png',
 		is_ground_content = true,
 		groups = {cracky=3},
 		sounds = default.node_sound_stone_defaults(),
@@ -136,7 +136,7 @@ for _, colour in ipairs(DYES) do
 	minetest.register_node('blox:' .. name, {
 		description = colour .. " cobble",
 		tiles = { 'blox_' .. name .. '.png' },
-		inventory_image = 'blox_' .. name .. '.png',
+		--inventory_image = 'blox_' .. name .. '.png',
 		is_ground_content = true,
 		groups = {cracky=3},
 		sounds = default.node_sound_stone_defaults(),
