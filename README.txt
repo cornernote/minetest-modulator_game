@@ -97,6 +97,7 @@ metals - http://minetest.net/forum/viewtopic.php?id=2526
 more_fences - http://minetest.net/forum/viewtopic.php?id=543
 moreblocks - http://minetest.net/forum/viewtopic.php?id=509
 morenyan - http://minetest.net/forum/viewtopic.php?id=2193
+nbu - http://minetest.net/forum/viewtopic.php?id=2750
 papyrus_bed - http://minetest.net/forum/viewtopic.php?id=2708
 roof - http://minetest.net/forum/viewtopic.php?id=1254
 secret_passage - http://minetest.net/forum/viewtopic.php?id=667
