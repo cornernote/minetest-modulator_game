@@ -92,6 +92,7 @@ homedecor - http://minetest.net/forum/viewtopic.php?id=2041
 industrial - http://minetest.net/forum/viewtopic.php?id=692
 jumping - http://minetest.net/forum/viewtopic.php?id=2957
 lights - http://minetest.net/forum/viewtopic.php?id=2433
+madblocks - http://minetest.net/forum/viewtopic.php?id=1598
 metals - http://minetest.net/forum/viewtopic.php?id=2526
 more_fences - http://minetest.net/forum/viewtopic.php?id=543
 moreblocks - http://minetest.net/forum/viewtopic.php?id=509
@@ -160,6 +161,7 @@ harvest - http://minetest.net/forum/viewtopic.php?id=2619
 Functional mods
 ----------
 carts - http://minetest.net/forum/viewtopic.php?id=2451
+livehouse - http://minetest.net/forum/viewtopic.php?id=1675
 lottery - http://minetest.net/forum/viewtopic.php?id=2466
 mesecons - http://minetest.net/forum/viewtopic.php?id=628
 pushable_block - http://minetest.net/forum/viewtopic.php?id=730
