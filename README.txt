@@ -190,6 +190,7 @@ moreores - http://minetest.net/forum/viewtopic.php?id=549
 poison - http://minetest.net/forum/viewtopic.php?id=1591
 ropes - http://mirkolinux.wordpress.com/2011/12/03/rope-mod-for-minetest/
 titanium - http://minetest.net/forum/viewtopic.php?id=3113
+throwing - http://minetest.net/forum/viewtopic.php?id=2805
 tnt - http://minetest.net/forum/viewtopic.php?id=2902
 toolsizes - http://minetest.net/forum/viewtopic.php?id=2811
 workbench - http://minetest.net/forum/viewtopic.php?id=2000
