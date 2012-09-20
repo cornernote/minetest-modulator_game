@@ -186,3 +186,10 @@ tnt - http://minetest.net/forum/viewtopic.php?id=2902
 toolsizes - http://minetest.net/forum/viewtopic.php?id=2811
 workbench - http://minetest.net/forum/viewtopic.php?id=2000
 
+
+Future Considerations
+----------
+sand
+snow
+
+
