@@ -46,7 +46,7 @@ minetest.register_entity("particles:particle", {
 minetest.register_on_dignode(function(pos, oldnode, digger)
 	local node = minetest.registered_nodes[oldnode.name]
 	-- if the no_particles group is set dont add particles
-	if node.groups.no_particles then
+	if node==nil or node.groups.no_particles then
 		return
 	end
 	-- try to get the textures from the dig_result instead of the digged node
