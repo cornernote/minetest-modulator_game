@@ -84,6 +84,7 @@ bobblocks - http://minetest.net/forum/viewtopic.php?id=1274
 building_blocks - http://minetest.net/forum/viewtopic.php?id=674
 castle_wall - http://minetest.net/forum/viewtopic.php?id=2460
 castle_grille - http://minetest.net/forum/viewtopic.php?id=1241
+chess - http://minetest.net/forum/viewtopic.php?id=2784
 clock_face - http://minetest.net/forum/viewtopic.php?id=807
 craft_guide - http://minetest.net/forum/viewtopic.php?id=2334
 fireplace - http://minetest.net/forum/viewtopic.php?id=1695
