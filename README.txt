@@ -154,7 +154,7 @@ mushrooms - http://minetest.net/forum/viewtopic.php?id=766
 nature - http://minetest.net/forum/viewtopic.php?id=729
 poisonivy - http://minetest.net/forum/viewtopic.php?id=1834
 vines - http://minetest.net/forum/viewtopic.php?id=2344
-habitat - http://minetest.net/forum/viewtopic.php?id=2619
+plants - http://minetest.net/forum/viewtopic.php?id=2619
 harvest - http://minetest.net/forum/viewtopic.php?id=2619
 
 
@@ -166,6 +166,7 @@ lottery - http://minetest.net/forum/viewtopic.php?id=2466
 mesecons - http://minetest.net/forum/viewtopic.php?id=628
 pushable_block - http://minetest.net/forum/viewtopic.php?id=730
 technic - http://minetest.net/forum/viewtopic.php?id=2538
+workers - http://minetest.net/forum/viewtopic.php?id=2576
 
 
 Tool mods
