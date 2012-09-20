@@ -148,6 +148,7 @@ inventory_plus - http://minetest.net/forum/viewtopic.php?id=3100
 Nature mods
 ----------
 bushes - http://minetest.net/forum/viewtopic.php?id=729
+cactus - http://minetest.net/forum/viewtopic.php?id=2922
 conifers - http://minetest.net/forum/viewtopic.php?id=1453
 farming - http://minetest.net/forum/viewtopic.php?id=2787
 flowers - http://minetest.net/forum/viewtopic.php?id=2624
@@ -169,6 +170,7 @@ livehouse - http://minetest.net/forum/viewtopic.php?id=1675
 lottery - http://minetest.net/forum/viewtopic.php?id=2466
 mesecons - http://minetest.net/forum/viewtopic.php?id=628
 mobs - http://minetest.net/forum/viewtopic.php?id=3063
+pipeworks - http://minetest.net/forum/viewtopic.php?id=2155
 pushable_block - http://minetest.net/forum/viewtopic.php?id=730
 technic - http://minetest.net/forum/viewtopic.php?id=2538
 workers - http://minetest.net/forum/viewtopic.php?id=2576
@@ -189,3 +191,5 @@ toolsizes - http://minetest.net/forum/viewtopic.php?id=2811
 workbench - http://minetest.net/forum/viewtopic.php?id=2000
 
 
+Future considerations:
+hunger - http://minetest.net/forum/viewtopic.php?id=3114
