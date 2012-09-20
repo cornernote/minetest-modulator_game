@@ -174,6 +174,7 @@ mobs - http://minetest.net/forum/viewtopic.php?id=3063
 pipeworks - http://minetest.net/forum/viewtopic.php?id=2155
 pushable_block - http://minetest.net/forum/viewtopic.php?id=730
 technic - http://minetest.net/forum/viewtopic.php?id=2538
+traps - http://minetest.net/forum/viewtopic.php?id=2838
 workers - http://minetest.net/forum/viewtopic.php?id=2576
 
 
