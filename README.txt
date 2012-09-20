@@ -107,6 +107,11 @@ xbar - http://minetest.net/forum/viewtopic.php?id=2215
 xpanes - http://minetest.net/forum/viewtopic.php?id=2117
 
 
+Commands mods
+----------
+bookmarks - http://minetest.net/forum/viewtopic.php?id=2321
+
+
 Door mods
 ----------
 gates - http://minetest.net/forum/viewtopic.php?id=896
