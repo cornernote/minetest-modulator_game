@@ -78,6 +78,7 @@ Block Mods
 ----------
 3dforniture - http://minetest.net/forum/viewtopic.php?id=2207
 asphalt - http://minetest.net/forum/viewtopic.php?id=2984
+beds - http://minetest.net/forum/viewtopic.php?id=2625
 blox - http://minetest.net/forum/viewtopic.php?id=1960
 brick - http://minetest.net/forum/viewtopic.php?id=1631
 building_blocks - http://minetest.net/forum/viewtopic.php?id=674
