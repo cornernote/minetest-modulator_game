@@ -1,6 +1,6 @@
 minetest.register_node( "technic:mineral_diamond", {
 	description = "Diamond Ore",
-	tile_images = { "default_stone.png^technic_mineral_diamond.png" },
+	tiles = { "default_stone.png^technic_mineral_diamond.png" },
 	is_ground_content = true,
 	groups = {cracky=3},
 	sounds = default.node_sound_stone_defaults(),
@@ -12,6 +12,54 @@ minetest.register_craftitem( "technic:diamond", {
 	inventory_image = "technic_diamond.png",
 	on_place_on_ground = minetest.craftitem_place_item,
 })
+
+minetest.register_node( "technic:mineral_uranium", {
+	description = "Uranium Ore",
+	tiles = { "default_stone.png^technic_mineral_uranium.png" },
+	is_ground_content = true,
+	groups = {cracky=3},
+	sounds = default.node_sound_stone_defaults(),
+	drop = 'craft "technic:uranium" 1',
+}) 
+
+minetest.register_craftitem( "technic:uranium", {
+	description = "Uranium",
+	inventory_image = "technic_uranium.png",
+	on_place_on_ground = minetest.craftitem_place_item,
+})
+
+minetest.register_node( "technic:mineral_chromium", {
+	description = "Chromium Ore",
+	tiles = { "default_stone.png^technic_mineral_chromium.png" },
+	is_ground_content = true,
+	groups = {cracky=3},
+	sounds = default.node_sound_stone_defaults(),
+	drop = 'craft "technic:chromium_lump" 1',
+}) 
+
+minetest.register_craftitem( "technic:chromium_lump", {
+	description = "Chromium Lump",
+	inventory_image = "technic_chromium_lump.png",
+	on_place_on_ground = minetest.craftitem_place_item,
+})
+
+minetest.register_craftitem( "technic:chromium_ingot", {
+	description = "Chromium Ingot",
+	inventory_image = "technic_chromium_ingot.png",
+	on_place_on_ground = minetest.craftitem_place_item,
+})
+
+minetest.register_craftitem( "technic:stainless_steel_ingot", {
+	description = "Stainless Steel Ingot",
+	inventory_image = "technic_stainless_steel_ingot.png",
+	on_place_on_ground = minetest.craftitem_place_item,
+})
+
+minetest.register_craft({
+				type = 'cooking',
+				output = "technic:chromium_ingot",
+				recipe = "technic:chromium_lump"
+			})
 
 local function generate_ore(name, wherein, minp, maxp, seed, chunks_per_volume, ore_per_chunk, height_min, height_max)
 	if maxp.y < height_min or minp.y > height_max then
@@ -56,5 +104,7 @@ local function generate_ore(name, wherein, minp, maxp, seed, chunks_per_volume, 
 end
 
 minetest.register_on_generated(function(minp, maxp, seed)
-generate_ore("technic:mineral_diamond", "default:stone", minp, maxp, seed+20,   1/11/11/11,    1, -31000,  -450)
+generate_ore("technic:mineral_diamond", "default:stone", minp, maxp, seed+20,   1/11/11/11,    2, -31000,  -450)
+generate_ore("technic:mineral_uranium", "default:stone", minp, maxp, seed+20,   1/11/11/11,    1, -300,  -100)
+generate_ore("technic:mineral_chromium", "default:stone", minp, maxp, seed+30,   1/10/10/10,    2, -31000,  -100)
 end)
