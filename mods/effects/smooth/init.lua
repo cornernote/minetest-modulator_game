@@ -88,7 +88,7 @@ minetest.register_node("smooth:tree_grass", {
 	description = "Tree Grass",
 	tile_images = {"default_tree_top.png", "default_tree_top.png", "default_tree.png^smooth_grass.png"},
 	is_ground_content = true,
-	groups = {tree=1,snappy=1,choppy=2,flammable=2},
+	groups = {tree=1,snappy=1,choppy=2,oddly_breakable_by_hand=1,flammable=2},
 	sounds = default.node_sound_wood_defaults(),
 	drop = 'default:tree',
 })
