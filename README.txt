@@ -99,9 +99,11 @@ morenyan - http://minetest.net/forum/viewtopic.php?id=2193
 nbu - http://minetest.net/forum/viewtopic.php?id=2750
 papyrus_bed - http://minetest.net/forum/viewtopic.php?id=2708
 roof - http://minetest.net/forum/viewtopic.php?id=1254
+sand - http://minetest.net/forum/viewtopic.php?id=2387
 secret_passage - http://minetest.net/forum/viewtopic.php?id=667
 signs - http://minetest.net/forum/viewtopic.php?id=2736
 sim_paint - http://minetest.net/forum/viewtopic.php?id=1279
+snow - http://minetest.net/forum/viewtopic.php?id=2290
 stairsplus - http://minetest.net/forum/viewtopic.php?id=2092
 streets - http://minetest.net/forum/viewtopic.php?id=2984
 terrariumblocks - http://minetest.net/forum/viewtopic.php?id=2905
@@ -185,11 +187,5 @@ titanium - http://minetest.net/forum/viewtopic.php?id=3113
 tnt - http://minetest.net/forum/viewtopic.php?id=2902
 toolsizes - http://minetest.net/forum/viewtopic.php?id=2811
 workbench - http://minetest.net/forum/viewtopic.php?id=2000
-
-
-Future Considerations
-----------
-sand
-snow
 
 
