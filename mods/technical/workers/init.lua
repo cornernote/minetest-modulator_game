@@ -310,7 +310,7 @@ minetest.register_node("workers:guard", {
 			minetest.chat_send_player(master, "Gredo: Hands off!")
 			return
 		end
-		return minetest.node_metadata_inventory_take_allow_all(pos, listname, index, count, player)
+		--return minetest.node_metadata_inventory_take_allow_all(pos, listname, index, count, player)
 	end,
 	
 	can_dig = function(pos,player)
@@ -435,7 +435,7 @@ minetest.register_node("workers:thief", {
 			minetest.chat_send_player(master, "Toco: Hands off!")
 			return
 		end
-		return minetest.node_metadata_inventory_take_allow_all(pos, listname, index, count, player)
+		--return minetest.node_metadata_inventory_take_allow_all(pos, listname, index, count, player)
 	end,
 	
 	can_dig = function(pos,player)

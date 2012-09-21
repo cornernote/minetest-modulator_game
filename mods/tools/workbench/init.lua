@@ -89,8 +89,7 @@ minetest.register_node("workbench:3x3", {
 		return post
 	end,
 	on_metadata_inventory_take = function(pos, listname, index, count, player)
-		local post = minetest.node_metadata_inventory_take_allow_all(
-				pos, listname, index, count, player)
+		--local post = minetest.node_metadata_inventory_take_allow_all(pos, listname, index, count, player)
 		if listname == "table" then
 			local meta = minetest.env:get_meta(pos)
 			local inv = meta:get_inventory()
@@ -135,7 +134,7 @@ minetest.register_node("workbench:3x3", {
 				inv:set_stack("dst", 1, nil)
 			end
 		end
-		return post
+		--return post
 	end,
 })
 
@@ -212,8 +211,7 @@ minetest.register_node("workbench:4x4", {
 		return post
 	end,
 	on_metadata_inventory_take = function(pos, listname, index, count, player)
-		local post = minetest.node_metadata_inventory_take_allow_all(
-				pos, listname, index, count, player)
+		--local post = minetest.node_metadata_inventory_take_allow_all(pos, listname, index, count, player)
 		if listname == "table" then
 			local meta = minetest.env:get_meta(pos)
 			local inv = meta:get_inventory()
@@ -258,7 +256,7 @@ minetest.register_node("workbench:4x4", {
 				inv:set_stack("dst", 1, nil)
 			end
 		end
-		return post
+		--return post
 	end,
 })
 
@@ -335,8 +333,7 @@ minetest.register_node("workbench:5x5", {
 		return post
 	end,
 	on_metadata_inventory_take = function(pos, listname, index, count, player)
-		local post = minetest.node_metadata_inventory_take_allow_all(
-				pos, listname, index, count, player)
+		--local post = minetest.node_metadata_inventory_take_allow_all(pos, listname, index, count, player)
 		if listname == "table" then
 			local meta = minetest.env:get_meta(pos)
 			local inv = meta:get_inventory()
@@ -381,7 +378,7 @@ minetest.register_node("workbench:5x5", {
 				inv:set_stack("dst", 1, nil)
 			end
 		end
-		return post
+		--return post
 	end,
 })
 
