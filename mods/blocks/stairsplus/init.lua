@@ -282,16 +282,15 @@ function stairsplus.register_panel(subname, recipeitem, groups, images, descript
 	})
 
 	minetest.register_craft({
-		output = 'stairsplus:panel_' .. subname .. '_bottom' .. ' 12',
+		output = 'stairsplus:panel_' .. subname .. '_bottom' .. ' 8',
 		recipe = {
-			{recipeitem, recipeitem, recipeitem},
+			{recipeitem, recipeitem},
 		},
 	})
 	
 	minetest.register_craft({
-		output = 'stairsplus:panel_' .. subname .. '_vertical' .. ' 12',
+		output = 'stairsplus:panel_' .. subname .. '_vertical' .. ' 8',
 		recipe = {
-			{recipeitem},
 			{recipeitem},
 			{recipeitem},
 		},
