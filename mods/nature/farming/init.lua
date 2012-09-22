@@ -209,3 +209,7 @@ dofile(minetest.get_modpath("farming").."/papyrus.lua")
 
 -- ========= CACTUS =========
 dofile(minetest.get_modpath("farming").."/cactus.lua")
+
+-- ========= PUMPKIN =========
+dofile(minetest.get_modpath("farming").."/pumpkin.lua")
+
