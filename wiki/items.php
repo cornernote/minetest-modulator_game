@@ -1,27 +1,38 @@
-<?php require('globals.php'); ?>
+<?php
+/**
+ * GameWiki for Minetest
+ *
+ * Copyright (c) 2012 cornernote, Brett O'Donnell <cornernote@gmail.com>
+ *
+ * Source Code: https://github.com/cornernote/minetest-gamewiki
+ * License: GPLv3
+ */
+require('globals.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>MTGW</title>
-    <?php echo head_tags(); ?>
+    <title>List Items :: <?php echo $GLOBALS['name']; ?></title>
+    <?php include('include/head_tags.php'); ?>
 </head>
 
 <body>
-<?php echo menu(); ?>
+<?php include('include/menu.php'); ?>
 <div class="container">
 
     <?php
-    $mods = array();
-    $q = $GLOBALS['db']->query('SELECT mod FROM "item" WHERE mod!="unknown" AND mod!="" GROUP BY mod ORDER BY mod');
-    while ($row = $q->fetchArray()) {
-        $mods[] = $row['mod'];
+    $mods = gamewiki::get_mods();
+    $filters = $filter_sql = $filter_join = '';
+    if (isset($_GET['mod'])) {
+        $filters .= '[mod:' . $_GET['mod'] . ']';
+        $filter_sql .= 'AND "mod"="' . SQLite3::escapeString($_GET['mod']) . '" ';
     }
-    $filters = '';
-    $group_sql = $group_join = '';
     if (isset($_GET['group'])) {
         $filters .= '[group:' . $_GET['group'] . ']';
-        $group_join = 'LEFT JOIN group_to_itemname ON "group_to_itemname"."name"="item"."name"';
-        $group_sql = 'AND "group"="' . SQLite3::escapeString($_GET['group']) . '"';
+        foreach (explode(',', $_GET['group']) as $group) {
+            $filter_join .= 'LEFT JOIN group_to_itemname group_' . $group . ' ON "group_' . $group . '"."name"="item"."name"';
+            $filter_sql .= 'AND "group_' . $group . '"."group"="' . SQLite3::escapeString($group) . '" ';
+        }
     }
     ?>
 
@@ -40,27 +51,24 @@
             <div class="row">
                 <?php
                 foreach (array('tool', 'node', 'craft') as $type) {
+                    $sql = '
+                        SELECT "item"."id", "item"."name", "item"."image", "item"."description"
+                        FROM "item"
+                        ' . $filter_join . '
+                        WHERE "type"="' . $type . '"
+                        AND "mod"="' . $mod . '"
+                        ' . $filter_sql . '
+                        ORDER BY "item"."name"
+                    ';
+                    $q = $db->query($sql);
                     ?>
                     <div class="span4">
                         <h3><?php echo 'type:' . $type; ?></h3>
                         <?php
-                        $sql = '
-							SELECT "item"."id", "item"."name", "item"."image", "item"."description" 
-							FROM "item"
-							' . $group_join . '
-							WHERE "type"="' . $type . '"
-							AND "mod"="' . $mod . '" 
-							' . $group_sql . '
-							ORDER BY "item"."name"
-						';
-                        $q = $GLOBALS['db']->query($sql);
-                        echo '<ul>';
                         while ($row = $q->fetchArray()) {
-                            echo '<li>' . item($row['name']) . '</li>';
+                            echo gamewiki::item($row['name'], null, true);
                             $output_mod = true;
-                            $output_type = true;
                         }
-                        echo '</ul>';
                         ?>
                     </div>
                     <?php
@@ -73,7 +81,7 @@
         if ($output_mod) echo $contents;
     }
     ?>
-
 </div>
+<div id="footer"></div>
 </body>
 </html>
