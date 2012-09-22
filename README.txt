@@ -1,19 +1,20 @@
 ----------------------------------
-CORNERNOTE'S GAME FOR MINETEST
+CoRNeRNoTe'S GaMe for Minetest
 ----------------------------------
 
-
 Copyright (c) 2012 cornernote, Brett O'Donnell <cornernote@gmail.com>
+Source Code: https://github.com/cornernote/minetest-cornernote_game
 
-Source Code: https://github.com/cornernote/minetest-seablock_game
-License: GPLv3
+This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
 
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 
 ----------------------------------
 Description
 ----------------------------------
-
 
 This game has many mods installed for a fun and interesting gaming experience.
 
@@ -21,45 +22,17 @@ To view the items and craft recipies, please visit the Game Wiki:
 http://cornernote.net/minetest/cornernote_game/wiki
 
 
-
 ----------------------------------
 Install Instructions
 ----------------------------------
-
 
 1) rename cornernote-minetest-cornernote_game-* to cornernote_game
 2) move cornernote_game into /minetest/games/
 
 
-
-----------------------------------
-License
-----------------------------------
-
-This program is free software; you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation; either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License along
-with this program; if not, write to the Free Software Foundation, Inc.,
-51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
-
-
-
 ----------------------------------
 Credits
 ----------------------------------
-
-
-----------
-Mods and Addons
-----------
 
 
 From minetest_game
@@ -197,4 +170,5 @@ workbench - http://minetest.net/forum/viewtopic.php?id=2000
 
 
 Future considerations:
+----------
 hunger - http://minetest.net/forum/viewtopic.php?id=3114
