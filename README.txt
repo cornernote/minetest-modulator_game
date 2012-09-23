@@ -172,3 +172,8 @@ workbench - http://minetest.net/forum/viewtopic.php?id=2000
 Future considerations:
 ----------
 hunger - http://minetest.net/forum/viewtopic.php?id=3114
+
+gates - http://minetest.net/forum/viewtopic.php?id=2943
+	these gates connect to xfences
+xfences - http://minetest.net/forum/viewtopic.php?id=2127
+	these fences do not allow mobs to jump them
