@@ -223,7 +223,9 @@ end
 -- Nodes will be called castle_wall:{castle_wall,slab}_<subname>
 function castle_wall.register_castle_wall_and_slab(subname, recipeitem, groups, images, desc_castle_wall, desc_slab)
 	castle_wall.register_castle_wall(subname, recipeitem, groups, images, desc_castle_wall)
-	castle_wall.register_slab(subname, recipeitem, groups, images, desc_slab)
+	
+	-- slabs are provided by stairsplus
+	--castle_wall.register_slab(subname, recipeitem, groups, images, desc_slab)
 end
 
 castle_wall.register_castle_wall_and_slab("wood", "default:wood",
