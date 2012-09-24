@@ -126,7 +126,6 @@ conifers - http://minetest.net/forum/viewtopic.php?id=1453
 farming - http://minetest.net/forum/viewtopic.php?id=2787
 flowers - http://minetest.net/forum/viewtopic.php?id=2624
 growing_trees - http://minetest.net/forum/viewtopic.php?id=978
-irontrees - http://minetest.net/forum/viewtopic.php?id=729
 junglegrass - http://minetest.net/forum/viewtopic.php?id=2307
 jungletree - http://minetest.net/forum/viewtopic.php?id=2887
 mushrooms - http://minetest.net/forum/viewtopic.php?id=766
@@ -185,3 +184,6 @@ slimes - http://minetest.net/forum/viewtopic.php?id=2979
 
 brick - http://minetest.net/forum/viewtopic.php?id=1631
 - recipies conflicted, mods with better textures are used
+
+irontrees - http://minetest.net/forum/viewtopic.php?id=729
+- they look ugly
