@@ -95,10 +95,10 @@ minetest.register_node("roof:claytile", {
 })
 
 minetest.register_craft({
-	output = "roof:thatch 4",
+	output = "roof:thatch 6",
 	recipe = {
 		{"default:junglegrass"},
-		{"default:junglegrass"},
+		{"default:junglegrass","default:junglegrass"},
 	}
 })
 
@@ -119,17 +119,17 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = "roof:claytile 4",
+	output = "roof:claytile 6",
 	recipe = {
 		{"default:clay"},
-		{"default:clay"},
+		{"default:clay","default:clay"},
 	}
 })
 
 minetest.register_craft({
-	output = "roof:slatetile 4",
+	output = "roof:slatetile 6",
 	recipe = {
 		{"default:stone"},
-		{"default:stone"},
+		{"default:stone","default:stone"},
 	}
 })
