@@ -60,10 +60,10 @@ minetest.register_craft({
 	}
 })
 minetest.register_craft({
-	output = 'building_blocks:grate 1',
+	output = 'building_blocks:grate 2',
 	recipe = {
-		{"default:steel_ingot"},
-		{"default:glass"},
+		{"default:steel_ingot","default:glass"},
+		{"default:glass","default:steel_ingot"},
 	}
 })
 minetest.register_craft({

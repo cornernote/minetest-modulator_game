@@ -52,7 +52,6 @@ Block Mods
 asphalt - http://minetest.net/forum/viewtopic.php?id=2984
 beds - http://minetest.net/forum/viewtopic.php?id=2625
 blox - http://minetest.net/forum/viewtopic.php?id=1960
-brick - http://minetest.net/forum/viewtopic.php?id=1631
 bobblocks - http://minetest.net/forum/viewtopic.php?id=1274
 building_blocks - http://minetest.net/forum/viewtopic.php?id=674
 castle_wall - http://minetest.net/forum/viewtopic.php?id=2460
@@ -183,3 +182,6 @@ mobs - http://minetest.net/forum/viewtopic.php?id=3063
 
 slimes - http://minetest.net/forum/viewtopic.php?id=2979
 - need to get other mods working before mobs/animals
+
+brick - http://minetest.net/forum/viewtopic.php?id=1631
+- recipies conflicted, mods with better textures are used
