@@ -81,6 +81,7 @@ stairsplus - http://minetest.net/forum/viewtopic.php?id=2092
 streets - http://minetest.net/forum/viewtopic.php?id=2984
 terrariumblocks - http://minetest.net/forum/viewtopic.php?id=2905
 xbar - http://minetest.net/forum/viewtopic.php?id=2215
+xfences - http://minetest.net/forum/viewtopic.php?id=2127
 xpanes - http://minetest.net/forum/viewtopic.php?id=2117
 
 
@@ -91,7 +92,7 @@ bookmarks - http://minetest.net/forum/viewtopic.php?id=2321
 
 Door mods
 ----------
-gates - http://minetest.net/forum/viewtopic.php?id=896
+gates - http://minetest.net/forum/viewtopic.php?id=2943
 hatches - http://minetest.net/forum/viewtopic.php?id=609
 xdoors2 - http://minetest.net/forum/viewtopic.php?id=2757
 
@@ -169,12 +170,6 @@ workbench - http://minetest.net/forum/viewtopic.php?id=2000
 Future considerations:
 ----------
 hunger - http://minetest.net/forum/viewtopic.php?id=3114
-
-gates - http://minetest.net/forum/viewtopic.php?id=2943
-	these gates connect to xfences
-xfences - http://minetest.net/forum/viewtopic.php?id=2127
-	these fences do not allow mobs to jump them
-
 
 
 Disabled mods:
