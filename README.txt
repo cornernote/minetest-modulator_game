@@ -66,7 +66,6 @@ industrial - http://minetest.net/forum/viewtopic.php?id=692
 jumping - http://minetest.net/forum/viewtopic.php?id=2957
 lights - http://minetest.net/forum/viewtopic.php?id=2433
 madblocks - http://minetest.net/forum/viewtopic.php?id=1598
-metals - http://minetest.net/forum/viewtopic.php?id=2526
 more_fences - http://minetest.net/forum/viewtopic.php?id=543
 moreblocks - http://minetest.net/forum/viewtopic.php?id=509
 morenyan - http://minetest.net/forum/viewtopic.php?id=2193
@@ -144,10 +143,8 @@ carts - http://minetest.net/forum/viewtopic.php?id=2451
 livehouse - http://minetest.net/forum/viewtopic.php?id=1675
 lottery - http://minetest.net/forum/viewtopic.php?id=2466
 mesecons - http://minetest.net/forum/viewtopic.php?id=628
-mobs - http://minetest.net/forum/viewtopic.php?id=3063
 pipeworks - http://minetest.net/forum/viewtopic.php?id=2155
 pushable_block - http://minetest.net/forum/viewtopic.php?id=730
-slimes - http://minetest.net/forum/viewtopic.php?id=2979
 technic - http://minetest.net/forum/viewtopic.php?id=2538
 traps - http://minetest.net/forum/viewtopic.php?id=2838
 workers - http://minetest.net/forum/viewtopic.php?id=2576
@@ -177,3 +174,17 @@ gates - http://minetest.net/forum/viewtopic.php?id=2943
 	these gates connect to xfences
 xfences - http://minetest.net/forum/viewtopic.php?id=2127
 	these fences do not allow mobs to jump them
+
+
+
+Disabled mods:
+----------
+
+metals - http://minetest.net/forum/viewtopic.php?id=2526
+- crafts conflict and most items are in streets or pipeworks 
+
+mobs - http://minetest.net/forum/viewtopic.php?id=3063
+- too many mobs, need to get other mods working nicely
+
+slimes - http://minetest.net/forum/viewtopic.php?id=2979
+- need to get other mods working before mobs/animals
