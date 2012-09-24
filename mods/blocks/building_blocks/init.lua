@@ -18,20 +18,23 @@ minetest.register_craft({
 	}
 })
 minetest.register_craft({
-	output = 'building_blocks:Tarmac_spread 4',
+	output = 'building_blocks:Tarmac_spread 8',
 	recipe = {
+		{"building_blocks:Tar", "building_blocks:Tar", "building_blocks:Tar"},
 		{"building_blocks:Tar", "building_blocks:Tar", "building_blocks:Tar"},
 	}
 })
 minetest.register_craft({
-	output = 'building_blocks:gravel_spread 4',
+	output = 'building_blocks:gravel_spread 8',
 	recipe = {
+		{"default:gravel", "default:gravel", "default:gravel"},
 		{"default:gravel", "default:gravel", "default:gravel"},
 	}
 })
 minetest.register_craft({
-	output = 'building_blocks:brobble_spread 4',
+	output = 'building_blocks:brobble_spread 8',
 	recipe = {
+		{"default:brick", "default:cobble", "default:brick"},
 		{"default:brick", "default:cobble", "default:brick"},
 	}
 })
