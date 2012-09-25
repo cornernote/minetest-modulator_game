@@ -1,5 +1,5 @@
 ----------------------------------
-CoRNeRNoTe'S GaMe for Minetest
+Modulator Game for Minetest
 ----------------------------------
 
 Copyright (c) 2012 cornernote, Brett O'Donnell <cornernote@gmail.com>
@@ -19,15 +19,15 @@ Description
 This game has many mods installed for a fun and interesting gaming experience.
 
 To view the items and craft recipies, please visit the Game Wiki:
-http://cornernote.net/minetest/cornernote_game/wiki
+http://cornernote.net/minetest/modulator_game/wiki
 
 
 ----------------------------------
 Install Instructions
 ----------------------------------
 
-1) rename cornernote-minetest-cornernote_game-* to cornernote_game
-2) move cornernote_game into /minetest/games/
+1) rename cornernote-minetest-modulator_game-* to modulator_game
+2) move modulator_game into /minetest/games/
 
 
 ----------------------------------
