@@ -399,7 +399,7 @@ minetest.register_craft({
 minetest.register_craft({
 	type = "cooking",
 	output = "building_blocks:Tar",
-	recipe = "default:gravel",
+	recipe = "default:wood",
 })
 minetest.register_tool("building_blocks:knife", {
 	description = "Tar Knife",
