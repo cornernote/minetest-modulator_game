@@ -102,6 +102,7 @@ ambience - http://minetest.net/forum/viewtopic.php?id=2807
 animatedfluids - http://minetest.net/forum/viewtopic.php?id=2420
 animatedtorches - http://minetest.net/forum/viewtopic.php?id=2132
 bones - http://minetest.net/forum/viewtopic.php?id=2206
+builtin_item - http://minetest.net/forum/viewtopic.php?id=3188
 drippingwater - http://minetest.net/forum/viewtopic.php?id=1688
 drowning - http://minetest.net/forum/viewtopic.php?id=1402
 item_drop - http://minetest.net/forum/viewtopic.php?id=2656
