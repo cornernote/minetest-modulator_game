@@ -13,6 +13,7 @@
 -- License: GPL
 --
 
+dofile(minetest.get_modpath("homedecor").."/television.lua")
 dofile(minetest.get_modpath("homedecor").."/foldingdoors_oak.lua")
 dofile(minetest.get_modpath("homedecor").."/foldingdoors_mahogany.lua")
 dofile(minetest.get_modpath("homedecor").."/exterior_door_fancy.lua")
@@ -51,7 +52,7 @@ minetest.register_node('homedecor:skylight', {
 	inventory_image = 'default_glass.png',
 	paramtype = 'light',
 	sunlight_propagates = true,
-	walkable = false,
+	walkable = true,
 	groups = { snappy = 3 },
 	sounds = default.node_sound_leaves_defaults(),
 })
@@ -272,24 +273,6 @@ minetest.register_node("homedecor:table_legs_wrought_iron", {
         sounds = default.node_sound_leaves_defaults(),
 	walkable = true,
 })
-
-minetest.register_node('homedecor:television', {
-	description = "Small CRT Television",
-	tiles = { 'homedecor_television_top.png',
-			'homedecor_television_bottom.png',
-			'homedecor_television_right.png',
-			'homedecor_television_left.png',
-			'homedecor_television_back.png',
-			'homedecor_television_front.png'},
-	sunlight_propagates = false,
-	paramtype = "light",
-	paramtype2 = "facedir",
-	walkable = true,
-	light_source = LIGHT_MAX - 1,
-	groups = { snappy = 3 },
-	sounds = default.node_sound_leaves_defaults(),
-})
-
 
 minetest.register_node('homedecor:stereo', {
 	description = "Stereo Receiver",
@@ -569,7 +552,7 @@ minetest.register_node('homedecor:dresser_mahogany_left_side', {
 	paramtype = "light",
 	paramtype2 = "facedir",
 	walkable = true,
-	groups = { snappy = 3 },
+	groups = { snappy = 3, not_in_creative_inventory=1 },
 	sounds = default.node_sound_leaves_defaults(),
 })
 
@@ -585,7 +568,7 @@ minetest.register_node('homedecor:dresser_mahogany_right_side', {
 	paramtype = "light",
 	paramtype2 = "facedir",
 	walkable = true,
-	groups = { snappy = 3 },
+	groups = { snappy = 3, not_in_creative_inventory=1 },
 	sounds = default.node_sound_leaves_defaults(),
 })
 
@@ -601,7 +584,7 @@ minetest.register_node('homedecor:dresser_oak_left_side', {
 	paramtype = "light",
 	paramtype2 = "facedir",
 	walkable = true,
-	groups = { snappy = 3 },
+	groups = { snappy = 3, not_in_creative_inventory=1 },
 	sounds = default.node_sound_leaves_defaults(),
 })
 
@@ -617,7 +600,7 @@ minetest.register_node('homedecor:dresser_oak_right_side', {
 	paramtype = "light",
 	paramtype2 = "facedir",
 	walkable = true,
-	groups = { snappy = 3 },
+	groups = { snappy = 3, not_in_creative_inventory=1 },
 	sounds = default.node_sound_leaves_defaults(),
 })
 
