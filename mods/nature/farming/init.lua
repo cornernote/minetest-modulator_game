@@ -175,6 +175,19 @@ for lvl = 1, 6, 1 do
 	})
 end
 
+-- potatoe -> potatoe
+minetest.register_alias("farming:potatoe_node", "farming:potatoe")
+--minetest.register_alias("farming:potatoe", "farming:potatoe_item") cant do this
+minetest.register_alias("farming:potatoe_straw", "farming:potatoe")
+minetest.register_alias("farming:seed_potatoe", "farming:potatoe_seed")
+for lvl = 1, 6, 1 do
+	minetest.register_entity(":farming:potatoe_lvl"..lvl, {
+		on_activate = function(self, staticdata)
+			minetest.env:set_node(self.object:getpos(), {name="farming:potatoe_1"})
+		end
+	})
+end
+
 -- corn -> wheat
 minetest.register_alias("farming:corn_node", "farming:wheat")
 minetest.register_alias("farming:corn", "farming:wheat_harvested")
@@ -201,8 +214,32 @@ dofile(minetest.get_modpath("farming").."/wheat.lua")
 -- ========= COTTON =========
 dofile(minetest.get_modpath("farming").."/cotton.lua")
 
+-- ========= PUMPKINS =========
+dofile(minetest.get_modpath("farming").."/pumpkin.lua")
+
+-- ========= RUBBER =========
+dofile(minetest.get_modpath("farming").."/rubber.lua")
+
 -- ========= WEED =========
 dofile(minetest.get_modpath("farming").."/weed.lua")
+
+-- ========= STRAWBERRIES =========
+dofile(minetest.get_modpath("farming").."/strawberries.lua")
+
+-- ========= RHUBARB =========
+dofile(minetest.get_modpath("farming").."/rhubarb.lua")
+
+-- ========= POTATOES =========
+dofile(minetest.get_modpath("farming").."/potatoes.lua")
+
+-- ========= TOMATOES =========
+dofile(minetest.get_modpath("farming").."/tomatoes.lua")
+
+-- ========= ORANGES =========
+dofile(minetest.get_modpath("farming").."/oranges.lua")
+
+-- ========= BANANAS =========
+dofile(minetest.get_modpath("farming").."/bananas.lua")
 
 -- ========= PAPYRUS =========
 dofile(minetest.get_modpath("farming").."/papyrus.lua")
@@ -210,6 +247,8 @@ dofile(minetest.get_modpath("farming").."/papyrus.lua")
 -- ========= CACTUS =========
 dofile(minetest.get_modpath("farming").."/cactus.lua")
 
--- ========= PUMPKIN =========
-dofile(minetest.get_modpath("farming").."/pumpkin.lua")
+-- ========= CARROTS =========
+dofile(minetest.get_modpath("farming").."/carrots.lua")
 
+-- ========= COCOA =========
+dofile(minetest.get_modpath("farming").."/cocoa.lua")
