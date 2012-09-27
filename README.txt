@@ -72,6 +72,7 @@ nbu - http://minetest.net/forum/viewtopic.php?id=2750
 papyrus_bed - http://minetest.net/forum/viewtopic.php?id=2708
 roof - http://minetest.net/forum/viewtopic.php?id=1254
 sand - http://minetest.net/forum/viewtopic.php?id=2387
+scaffolding - http://minetest.net/forum/viewtopic.php?id=3205
 secret_passage - http://minetest.net/forum/viewtopic.php?id=667
 signs - http://minetest.net/forum/viewtopic.php?id=2736
 sim_paint - http://minetest.net/forum/viewtopic.php?id=1279
