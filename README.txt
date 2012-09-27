@@ -107,7 +107,7 @@ drippingwater - http://minetest.net/forum/viewtopic.php?id=1688
 drowning - http://minetest.net/forum/viewtopic.php?id=1402
 item_drop - http://minetest.net/forum/viewtopic.php?id=2656
 particles - http://minetest.net/forum/viewtopic.php?id=3082
-smooth - bas080 - fourum topic coming soon
+smooth - http://minetest.net/forum/viewtopic.php?id=3203
 worldtime - http://minetest.net/forum/viewtopic.php?id=2205
 
 
