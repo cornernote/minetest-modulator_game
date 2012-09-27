@@ -159,6 +159,7 @@ gloopores - http://minetest.net/forum/viewtopic.php?id=2734
 infinitytools - http://minetest.net/forum/viewtopic.php?id=2535
 moreores - http://minetest.net/forum/viewtopic.php?id=549
 poison - http://minetest.net/forum/viewtopic.php?id=1591
+realtest - http://minetest.net/forum/viewtopic.php?id=2671
 ropes - http://mirkolinux.wordpress.com/2011/12/03/rope-mod-for-minetest/
 titanium - http://minetest.net/forum/viewtopic.php?id=3113
 throwing - http://minetest.net/forum/viewtopic.php?id=2805
@@ -170,6 +171,13 @@ workbench - http://minetest.net/forum/viewtopic.php?id=2000
 Future considerations:
 ----------
 hunger - http://minetest.net/forum/viewtopic.php?id=3114
+- still in development
+
+mobs - http://minetest.net/forum/viewtopic.php?id=3063
+- too many mobs, need to get other mods working nicely
+
+slimes - http://minetest.net/forum/viewtopic.php?id=2979
+- need to get other mods working before mobs/animals
 
 
 Disabled mods:
@@ -177,12 +185,6 @@ Disabled mods:
 
 metals - http://minetest.net/forum/viewtopic.php?id=2526
 - crafts conflict and most items are in streets or pipeworks 
-
-mobs - http://minetest.net/forum/viewtopic.php?id=3063
-- too many mobs, need to get other mods working nicely
-
-slimes - http://minetest.net/forum/viewtopic.php?id=2979
-- need to get other mods working before mobs/animals
 
 brick - http://minetest.net/forum/viewtopic.php?id=1631
 - recipies conflicted, mods with better textures are used
