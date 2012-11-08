@@ -19,7 +19,7 @@ Description
 This game has many mods installed for a fun and interesting gaming experience.
 
 To view the items and craft recipies, please visit the Game Wiki:
-http://cornernote.net/minetest/modulator_game/wiki
+http://cornernote.net/minetest/guide/modulator
 
 
 ----------------------------------
